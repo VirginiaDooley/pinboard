@@ -20,6 +20,7 @@ class SearchComponent extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log(this.state.query)
+    // fetch image api url and update images array
   }
 
   render () {
@@ -29,7 +30,7 @@ class SearchComponent extends Component {
           <input type="text" onChange={event => this.handleChange(event)} value={this.state.value}/>
             <button type="submit">Submit</button>
         </form>
-        // render image results component here
+        <SearchResults/>
       </div>
     )
   }
