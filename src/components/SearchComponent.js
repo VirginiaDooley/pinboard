@@ -3,7 +3,10 @@ import React from 'react'
 class SearchComponent extends React.Component {
   render () {
     return (
-      <input className="search-form" type="text" placeholder="Search images" />
+      <form>
+        <input className="search-form" type="text" placeholder="Search images" />
+        <button type="submit">Submit</button>
+      </form>
     )
   }
 }
