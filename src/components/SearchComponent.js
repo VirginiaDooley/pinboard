@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchResults from './SearchResults'
 
 class SearchComponent extends Component {
 
@@ -6,7 +7,7 @@ class SearchComponent extends Component {
       super()
         this.state = {
         images: [],
-        query: ""
+        query: ''
       }
     }
 
@@ -25,16 +26,13 @@ class SearchComponent extends Component {
     return (
       <div className="search-form">
         <form onSubmit={this.handleSubmit}>
-          <input type="text" onChange={event => this.handleChange(event)} value={this.state.value} placeholder="Search images" />
-          <div>
+          <input type="text" onChange={event => this.handleChange(event)} value={this.state.value}/>
             <button type="submit">Submit</button>
-          <div>
         </form>
+        // render image results component here
       </div>
     )
   }
 }
-
-
 
 export default SearchComponent;
