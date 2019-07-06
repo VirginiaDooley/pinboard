@@ -19,7 +19,7 @@ class SearchComponent extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // pinterest fetch api will go here
+    console.log(this.state.query)
   }
 
   render () {
