@@ -18,7 +18,7 @@ class SearchComponent extends Component {
           <input type="text" onChange={event => this.handleChange(event)} value={this.state.value}/>
             <button type="submit">Submit</button>
         </form>
-        <SearchResults/>
+        <SearchResults images={this.state.images}/>
       </div>
     )
   }
