@@ -11,18 +11,6 @@ class SearchComponent extends Component {
       }
     }
 
-  handleChange = (event) => {
-    this.setState({
-      query: event.target.value
-    })
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(this.state.query)
-    // fetch image api url and update images array
-  }
-
   render () {
     return (
       <div className="search-form">
@@ -34,6 +22,39 @@ class SearchComponent extends Component {
       </div>
     )
   }
+
+  handleChange = (event) => {
+    this.setState({
+      query: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state.query)
+    const q = this.state.query
+    const KEY = 'd5c39b1d4142cbfb56008c655ecd3b9bbb420cf12e53130dc9cbdf1ef67f746b'
+    const URL = `https://api.unsplash.com/search/photos?page=1&query=${q}`
+
+    fetch(URL, {
+      headers: {
+        Authorization: `Client-ID ${KEY}`
+      }
+    })
+    .then(function(response) {
+    		if (response.status >= 400) {
+    			throw new Error("Bad response from server");
+    		}
+    		return response.json();
+    	})
+    	.then(images => {
+        this.setState({
+          images: images.results
+        });
+        console.log(images)
+      })
+    }
+
 }
 
 export default SearchComponent;
