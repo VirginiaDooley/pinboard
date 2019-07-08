@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchResults from './SearchResults'
 
-class SearchComponent extends Component {
+class SearchContainer extends Component {
 
     constructor(){
       super()
@@ -57,4 +57,4 @@ class SearchComponent extends Component {
 
 }
 
-export default SearchComponent;
+export default SearchContainer;
