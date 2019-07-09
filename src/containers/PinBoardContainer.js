@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react';
 import PinBoard from '../components/PinBoard'
 
-class PinBoardContainer extends React.Component {
-  render () {
+class PinBoardContainer extends Component {
 
+  constructor(){
+    super()
+      this.state = {
+      board: [],
+    }
+  }
+
+  render () {
+    return (
+      <div className="board">
+        <PinBoard board={this.state.board} />
+      </div>
+    )
   }
 }
 
