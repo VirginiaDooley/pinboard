@@ -18,7 +18,7 @@ const NavBar = () => {
       >
         Create New Board
       </NavLink>
-      
+
     </div>
   );
 }
