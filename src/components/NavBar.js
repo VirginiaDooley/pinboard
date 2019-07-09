@@ -2,18 +2,24 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import SearchContainer from '../containers/SearchContainer'
 
+
 const link = {
   width: '100px',
-  padding: '12px',
-  margin: '0 6px 6px',
-  background: 'grey',
+  padding: '10px',
+  margin: '10px 10px 10px 10px',
   textDecoration: 'none',
   color: 'white',
 }
 
+const nav = {
+  padding: '10px',
+  margin: '10px 10px 10px 10px',
+  background: 'grey',
+}
+
 const NavBar = () => {
   return (
-    <div style={{ borderBottom: '1px solid grey', paddingBottom: '5px', paddingTop: '5px', marginBottom: '12px', marginTop: '12px' }}>
+    <div style={nav}>
 
       <NavLink
         style={link}
@@ -40,7 +46,7 @@ const NavBar = () => {
         Delete Board
       </NavLink>
 
-      <SearchContainer/>
+      <SearchContainer />
 
     </div>
   );

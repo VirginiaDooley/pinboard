@@ -1,26 +1,32 @@
 import React, { Component } from 'react';
+import { Button, Form, FormGroup, Input, Col} from 'reactstrap';
 import SearchResults from '../components/SearchResults'
 
 class SearchContainer extends Component {
 
-    constructor(){
-      super()
-        this.state = {
-        images: [],
-        query: ''
-      }
+  constructor(){
+    super()
+      this.state = {
+      images: [],
+      query: ''
     }
+  }
 
   render () {
     return (
-      <div className="search-form" style={{ padding: '20px', }}>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" onChange={event => this.handleChange(event)} value={this.state.value}/>
-            <button type="submit">Submit</button>
-        </form>
-        <SearchResults images={this.state.images}/>
+      <div>
+        <Form onSubmit={this.handleSubmit} onChange={event => this.handleChange(event)} value={this.state.value}>
+          <FormGroup row>
+            <Col sm={10}>
+              <Input type="text" name="search" id="search" bsSize="lg"/>
+              <Button>Search</Button>
+            </Col>
+          </FormGroup>
+        </Form>
+      <SearchResults images={this.state.images}/>
       </div>
     )
+
   }
 
   handleChange = (event) => {
