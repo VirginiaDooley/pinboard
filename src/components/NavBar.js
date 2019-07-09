@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import SearchContainer from '../containers/SearchContainer'
 
 const NavBar = () => {
   return (
@@ -18,6 +19,8 @@ const NavBar = () => {
       >
         Create New Board
       </NavLink>
+
+      <SearchContainer/>
 
     </div>
   );

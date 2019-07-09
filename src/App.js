@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
-import SearchContainer from './containers/SearchContainer';
+import PinBoardContainer from './containers/PinBoardContainer'
 
 class App extends React.Component {
   render () {
@@ -10,7 +10,7 @@ class App extends React.Component {
         <Router>
         <div className="App">
           <NavBar />
-          <SearchContainer />
+          <PinBoardContainer />
         </div>
         </Router>
     );

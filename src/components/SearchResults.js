@@ -9,7 +9,7 @@ const SearchResults = (props, index) =>
       <div className="image" key={index}>
         <Container>
           <Row>
-            <Col size="12" md="8">
+            <Col size="12" md="8" >
               <img src={image.urls.thumb} alt={image.alt_description}/>
             </Col>
           </Row>

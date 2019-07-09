@@ -2,7 +2,7 @@ import React from 'react'
 
 const PinBoard = (props) => {
   return (
-    <div />
+    <div>a blank pinboard</div>  
   )
 }
 
