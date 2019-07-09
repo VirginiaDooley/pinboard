@@ -13,7 +13,7 @@ class SearchContainer extends Component {
 
   render () {
     return (
-      <div className="search-form">
+      <div className="search-form" style={{ padding: '20px', }}>
         <form onSubmit={this.handleSubmit}>
           <input type="text" onChange={event => this.handleChange(event)} value={this.state.value}/>
             <button type="submit">Submit</button>
