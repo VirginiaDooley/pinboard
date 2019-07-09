@@ -28,6 +28,18 @@ const NavBar = () => {
         Create New Board
       </NavLink>
 
+      <NavLink style={link}
+        to="/save"
+      >
+        Save Board
+      </NavLink>
+
+      <NavLink style={link}
+        to="/delete"
+      >
+        Delete Board
+      </NavLink>
+
       <SearchContainer/>
 
     </div>
