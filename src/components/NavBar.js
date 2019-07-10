@@ -1,7 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import SearchContainer from '../containers/SearchContainer'
-
 
 const link = {
   width: '100px',
@@ -19,7 +17,7 @@ const nav = {
 
 const NavBar = () => {
   return (
-    <div style={nav}>
+    <div style={nav} className="navbar">
 
       <NavLink
         style={link}
@@ -45,8 +43,6 @@ const NavBar = () => {
       >
         Delete Board
       </NavLink>
-
-      <SearchContainer />
 
     </div>
   );
