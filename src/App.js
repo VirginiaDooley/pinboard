@@ -13,14 +13,24 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <NavBar />
-          <SearchContainer />
-          <PinBoardContainer />
+          <div class="App-header">
+            <NavBar />
+          </div>
+          <div class="column">
+            <SearchContainer />
+          </div>
 
             <Route exact path="/new" component={NewBoard} />
             <Route exact path="/save" component={SaveBoard} />
             <Route exact path="/delete" component={DeleteBoard} />
-            
+
+          <div className="Pinboard">
+            <div class="row:after">
+              <PinBoardContainer />
+            </div>
+          </div>
+
+
         </div>
       </Router>
     );

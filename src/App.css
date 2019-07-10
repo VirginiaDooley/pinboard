@@ -1,19 +1,12 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  text-align: left;
+  margin-left: 10px
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+  background-color: grey;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -30,4 +23,53 @@
   to {
     transform: rotate(360deg);
   }
-} */
+}
+
+.Search {
+  align-items: left;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.Pinboard {
+  align-items: left;
+  border-style: dashed;
+  margin-left: 10px;
+  display: grid;
+  justify-content: space-evenly;
+  height: 500px;
+  
+}
+
+.grid-container {
+  display: grid;
+  padding: 10px;
+  justify-content: space-evenly;
+}
+
+.grid-item {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+}

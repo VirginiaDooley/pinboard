@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Input, Col} from 'reactstrap';
+import { Button, Form, Input, Col} from 'reactstrap';
 import SearchResults from '../components/SearchResults'
 
 class SearchContainer extends Component {
@@ -16,12 +16,10 @@ class SearchContainer extends Component {
     return (
       <div>
         <Form onSubmit={this.handleSubmit} onChange={event => this.handleChange(event)} value={this.state.value}>
-          <FormGroup row>
-            <Col sm={10}>
-              <Input type="text" name="search" id="search" bsSize="lg"/>
-              <Button>Search</Button>
-            </Col>
-          </FormGroup>
+          <Col>
+            <Input type="text" name="search" id="search" bsSize="lg"/>
+            <Button>Search</Button>
+          </Col>
         </Form>
       <SearchResults images={this.state.images}/>
       </div>
