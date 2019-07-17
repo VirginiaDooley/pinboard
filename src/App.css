@@ -25,11 +25,30 @@
   }
 }
 
-.Search {
+.form-control {
+  margin:30px auto;
+  width:300px;
+  align-items: left;
+  margin-left: 10px;
+  margin-right: 20px;
+  padding: 20px;
+  position:relative;
+}
+
+button {
+  position:relative;
+  padding:6px 15px;
+  left:-8px;
+  border:2px solid #207cca;
+  background-color:#207cca;
+  color:#fafafa;
+}
+
+/* .Search {
   align-items: left;
   margin-left: 10px;
   padding: 10px;
-}
+} */
 
 .Pinboard {
   align-items: left;
@@ -38,7 +57,7 @@
   display: grid;
   justify-content: space-evenly;
   height: 500px;
-  
+
 }
 
 .grid-container {
