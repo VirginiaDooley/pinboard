@@ -13,8 +13,6 @@ class SearchContainer extends Component {
     }
   }
 
-
-
   handleChange = (event) => {
     this.setState({
       query: event.target.value
