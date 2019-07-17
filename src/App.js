@@ -26,7 +26,7 @@ class App extends React.Component {
 
           <div className="Pinboard">
             <div className="row:after">
-              <PinBoardContainer />
+              <BoardContainer />
             </div>
           </div>
         </div>
