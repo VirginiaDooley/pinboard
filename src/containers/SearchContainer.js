@@ -58,6 +58,7 @@ class SearchContainer extends Component {
               <Button id="button">Search</Button>
             </Col>
           </Form>
+          <h4>Search and click images to add to your board.</h4>
           {renderImages}
         </div>
       )
