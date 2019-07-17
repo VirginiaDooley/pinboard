@@ -13,7 +13,7 @@ class SearchContainer extends Component {
     }
   }
 
-  handleChange = (event) => {
+  handleSearchInput = (event) => {
     this.setState({
       query: event.target.value
     })
@@ -51,7 +51,7 @@ class SearchContainer extends Component {
       (<SearchResults image={image} key={index}/>))
       return (
         <div>
-          <Form onSubmit={this.handleSubmit} onChange={this.handleChange}
+          <Form onSubmit={this.handleSubmit} onChange={this.handleSearchInput}
             value={this.state.value}>
             <Col>
               <Input type="text" name="search" id="search" bsSize="lg"/>
