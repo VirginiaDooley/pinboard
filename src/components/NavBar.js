@@ -27,21 +27,15 @@ const NavBar = () => {
       </NavLink>
 
       <NavLink style={link}
-        to="/new"
+        to="/create"
       >
         Create New Board
       </NavLink>
 
       <NavLink style={link}
-        to="/save"
+        to="/index"
       >
-        Save Board
-      </NavLink>
-
-      <NavLink style={link}
-        to="/delete"
-      >
-        Delete Board
+        Board List
       </NavLink>
 
     </div>

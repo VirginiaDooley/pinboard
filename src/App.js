@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
-import PinBoardContainer from './containers/PinBoardContainer'
+import BoardContainer from './containers/BoardContainer'
 import SearchContainer from './containers/SearchContainer'
-import NewBoard from './components/NewBoard';
-import SaveBoard from './components/SaveBoard';
+import CreateBoard from './components/CreateBoard';
+import ShowBoard from './components/ShowBoard';
 import BoardsList from './components/BoardsList';
 
 class App extends React.Component {
@@ -20,7 +20,7 @@ class App extends React.Component {
             <SearchContainer />
           </div>
 
-            <Route exact path="/new" component={NewBoard} />
+            <Route exact path="/create" component={CreateBoard} />
             <Route exact path="/show" component={ShowBoard} />
             <Route exact path="/index" component={BoardsList} />
 
