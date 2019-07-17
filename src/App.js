@@ -29,8 +29,6 @@ class App extends React.Component {
               <PinBoardContainer />
             </div>
           </div>
-
-
         </div>
       </Router>
     );

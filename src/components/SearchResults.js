@@ -1,12 +1,10 @@
 import React from 'react'
 
-const SearchResults = (props, index) =>
-  <div class="grid-container">
-    {props.images.map((image, index) => (
-      <div class="grid-item" key={index}>
+const SearchResults = ({image}) =>
+  <div className="grid-container">
+      <div className="grid-item">
         <img src={image.urls.thumb} alt={image.alt_description}/>
       </div>
-    ))}
   </div>
 
 export default SearchResults;
