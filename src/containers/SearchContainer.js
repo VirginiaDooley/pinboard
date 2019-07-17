@@ -8,24 +8,12 @@ class SearchContainer extends Component {
     super()
       this.state = {
       images: [],
-      query: ''
+      query: '',
+      board: []
     }
   }
 
-  render () {
-    return (
-      <div>
-        <Form onSubmit={this.handleSubmit} onChange={event => this.handleChange(event)} value={this.state.value}>
-          <Col>
-            <Input type="text" name="search" id="search" bsSize="lg"/>
-            <Button>Search</Button>
-          </Col>
-        </Form>
-      <SearchResults images={this.state.images}/>
-      </div>
-    )
 
-  }
 
   handleChange = (event) => {
     this.setState({
@@ -57,6 +45,24 @@ class SearchContainer extends Component {
         });
         console.log(images)
       })
+    }
+
+    render () {
+      // debugger
+      const renderImages = this.state.images.map((image, index) =>
+      (<SearchResults image={image} key={index}/>))
+      return (
+        <div>
+          <Form onSubmit={this.handleSubmit} onChange={this.handleChange}
+            value={this.state.value}>
+            <Col>
+              <Input type="text" name="search" id="search" bsSize="lg"/>
+              <Button id="button">Search</Button>
+            </Col>
+          </Form>
+          {renderImages}
+        </div>
+      )
     }
 
 }
