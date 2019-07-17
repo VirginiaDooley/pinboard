@@ -6,7 +6,7 @@ import PinBoardContainer from './containers/PinBoardContainer'
 import SearchContainer from './containers/SearchContainer'
 import NewBoard from './components/NewBoard';
 import SaveBoard from './components/SaveBoard';
-import DeleteBoard from './components/DeleteBoard';
+import BoardsList from './components/BoardsList';
 
 class App extends React.Component {
   render () {
@@ -22,7 +22,7 @@ class App extends React.Component {
 
             <Route exact path="/new" component={NewBoard} />
             <Route exact path="/save" component={SaveBoard} />
-            <Route exact path="/delete" component={DeleteBoard} />
+            <Route exact path="/index" component={BoardsList} />
 
           <div className="Pinboard">
             <div className="row:after">
