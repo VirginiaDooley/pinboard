@@ -21,7 +21,7 @@ class App extends React.Component {
           </div>
 
             <Route exact path="/new" component={NewBoard} />
-            <Route exact path="/save" component={SaveBoard} />
+            <Route exact path="/show" component={ShowBoard} />
             <Route exact path="/index" component={BoardsList} />
 
           <div className="Pinboard">
