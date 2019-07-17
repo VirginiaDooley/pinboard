@@ -13,10 +13,10 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <div class="App-header">
+          <div className="App-header">
             <NavBar />
           </div>
-          <div class="column">
+          <div className="column">
             <SearchContainer />
           </div>
 
@@ -25,7 +25,7 @@ class App extends React.Component {
             <Route exact path="/delete" component={DeleteBoard} />
 
           <div className="Pinboard">
-            <div class="row:after">
+            <div className="row:after">
               <PinBoardContainer />
             </div>
           </div>
