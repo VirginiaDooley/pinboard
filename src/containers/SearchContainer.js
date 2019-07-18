@@ -4,8 +4,8 @@ import SearchResults from '../components/SearchResults'
 
 class SearchContainer extends Component {
 
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
       this.state = {
       images: [],
       query: '',
@@ -45,10 +45,15 @@ class SearchContainer extends Component {
       })
     }
 
+    chooseImage = (event) => {
+      console.log("event handler is working!");
+      this.setState({ board: [...this.state.board, event.target.name]});
+      console.log("now this is the current state", this.state)
+    }
+
     render () {
-      // debugger
       const renderImages = this.state.images.map((image, index) =>
-      (<SearchResults image={image} key={index}/>))
+      (<SearchResults image={image} key={index} />))
       return (
         <div>
           <Form onSubmit={this.handleSubmit} onChange={this.handleSearchInput}
@@ -58,12 +63,20 @@ class SearchContainer extends Component {
               <Button id="button">Search</Button>
             </Col>
           </Form>
+
           <h4>Search and click images to add to your board.</h4>
-          {renderImages}
+
+            <div className="grid-container">
+              <div className="grid-item">
+                <div className="image" onClick={this.chooseImage} value="">
+                  {renderImages}
+                </div>
+              </div>
+            </div>
+
         </div>
       )
     }
-
 }
 
 export default SearchContainer;
