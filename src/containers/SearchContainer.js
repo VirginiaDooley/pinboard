@@ -68,7 +68,7 @@ class SearchContainer extends Component {
 
             <div className="grid-container">
               <div className="grid-item">
-                <div className="image" onClick={this.chooseImage} value="">
+                <div className="image" onClick={this.chooseImage}>
                   {renderImages}
                 </div>
               </div>
