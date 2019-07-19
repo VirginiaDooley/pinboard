@@ -3,6 +3,7 @@ import { Button, Form, Input, Col} from 'reactstrap';
 import SearchResults from '../components/SearchResults'
 import BoardContainer from './BoardContainer'
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 class SearchContainer extends Component {
 
