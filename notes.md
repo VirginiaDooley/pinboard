@@ -37,23 +37,16 @@ render all boards
 *connect()*
 
 **RAILS**
-*Models
-  -Board
-    title: string
-
-  -Image
-    description: string
-    url: string
-
-    rails g resource Board title:string
+serializers?
 
 Join table
-
 has_and_belongs_to_many*
 
 *Create controller actions to match routes*
 
 *Use Thunk w Rails API in the Redux action see for example https://github.com/NickisKnowledge/Dinner_n_10_React-Redux_Project/blob/master/client/src/reducers/dinnersReducer.js*
+
+Refer back here when you're ready to build out the controller actions https://instruction.learn.co/student/video_lectures#/?query=react-redux
 
 **FURTHER DEVELOPMENT GOALS**
 *edit and update boards

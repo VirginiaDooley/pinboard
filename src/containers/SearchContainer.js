@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, Input, Col} from 'reactstrap';
 import SearchResults from '../components/SearchResults'
+import BoardContainer from './BoardContainer'
 
 class SearchContainer extends Component {
 
@@ -42,7 +43,6 @@ class SearchContainer extends Component {
     	.then((images) => {
         this.setState({images: images.results});
         // this.setState({images: images.map( image => ({ url: image.results.urls.thumb,  description: image.results.description }) )});
-        // this.setState({ gifs: data.map( gif => ({ url: gif.images.original.url }) ) })
         console.log(this.state.images)
       })
     }

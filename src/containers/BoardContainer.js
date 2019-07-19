@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import BoardShow from '../components/BoardShow'
 
 
-export default class BoardContainer extends Component {
+class BoardContainer extends Component {
 
   render() {
 
@@ -14,3 +14,5 @@ export default class BoardContainer extends Component {
       )
     }
 }
+
+export default BoardContainer;
