@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, Input, Col} from 'reactstrap';
+import { connect } from 'react-redux';
 import SearchResults from '../components/SearchResults'
 import BoardContainer from './BoardContainer'
 
