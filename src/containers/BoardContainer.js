@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
-import Board from '../components/Board'
+// This container can render either
+import BoardShow from '../components/BoardShow'
 
-class BoardContainer extends Component {
 
-  constructor(){
-    super()
-      this.state = {
-      board: [],
+export default class BoardContainer extends Component {
+
+  render() {
+
+      return (
+        <div>
+          <BoardShow boardImages={this.props.boardImages} />
+        </div>
+      )
     }
-  }
-
-  render () {
-    return (
-      <div className="board">
-        <Board board={this.state.board} />
-      </div>
-    )
-  }
 }
-
-export default BoardContainer;

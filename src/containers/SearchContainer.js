@@ -7,9 +7,9 @@ class SearchContainer extends Component {
   constructor(props){
     super(props)
       this.state = {
-      images: [],
       query: '',
-      board: []
+      images: [],
+      boardImages: []
     }
   }
 
@@ -27,6 +27,7 @@ class SearchContainer extends Component {
     const URL = `https://api.unsplash.com/search/photos?page=1&query=${q}`
 
     fetch(URL, {
+
       headers: {
         Authorization: `Client-ID ${KEY}`
       }
@@ -36,24 +37,25 @@ class SearchContainer extends Component {
     			throw new Error("Bad response from server");
     		}
     		return response.json();
+
     	})
-    	.then(images => {
-        this.setState({
-          images: images.results
-        });
-        console.log(images)
+    	.then((images) => {
+        this.setState({images: images.results});
+        // this.setState({images: images.map( image => ({ url: image.results.urls.thumb,  description: image.results.description }) )});
+        // this.setState({ gifs: data.map( gif => ({ url: gif.images.original.url }) ) })
+        console.log(this.state.images)
       })
     }
 
     chooseImage = (event) => {
       console.log("event handler is working!");
-      this.setState({ board: [...this.state.board, event.target.name]});
+      this.setState({ boardImages: [...this.state.boardImages, event.target.src]});
       console.log("now this is the current state", this.state)
     }
 
     render () {
       const renderImages = this.state.images.map((image, index) =>
-      (<SearchResults image={image} key={index} />))
+      (<SearchResults image={image} key={index} url={image.url} description={image.description}/>))
       return (
         <div>
           <Form onSubmit={this.handleSubmit} onChange={this.handleSearchInput}
@@ -68,7 +70,7 @@ class SearchContainer extends Component {
 
             <div className="grid-container">
               <div className="grid-item">
-                <div className="image" onClick={this.chooseImage}>
+                <div className="image" onClick={this.chooseImage} >
                   {renderImages}
                 </div>
               </div>

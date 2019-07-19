@@ -1,3 +1,7 @@
+React/Redux front end: https://github.com/VirginiaDooley/pinboard
+Rails backend: https://github.com/VirginiaDooley/pinboard-backend
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

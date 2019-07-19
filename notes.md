@@ -1,8 +1,29 @@
 **REACT**
-*create an event handler for selecting photos, use onClick (?) to update state of board.
-remember to use the spread operator within the event handler so that images can be added to the board after new image searches.*
+App
+ -SearchContainer
+  -SearchResults
+ -BoardContainer
+  -Board
+  -BoardList
+  -CreateBoard
+  -ShowBoard
 
-*use lifecycle function once state is set (after search) to map state*
+How do I get select keys from images to also appear in boardImages?
+
+ *render chosenImages from the state.board. Consider using a lifecycle function once state is set (after search) to map state*
+
+The board needs to render images and update state once a new image is selected. Maybe shouldcomponentupdate
+
+OR
+
+Should I intro Redux at this point to manage global state
+
+other tasks:
+create new board
+save board
+render all boards
+
+
 
 *separate search form into another component*
 
@@ -17,8 +38,17 @@ remember to use the spread operator within the event handler so that images can 
 
 **RAILS**
 *Models
-  -Boards
-  -Images
+  -Board
+    title: string
+
+  -Image
+    description: string
+    url: string
+
+    rails g resource Board title:string
+
+Join table
+
 has_and_belongs_to_many*
 
 *Create controller actions to match routes*

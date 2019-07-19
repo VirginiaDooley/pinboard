@@ -1,14 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
+// App is a parent component
 import './App.css';
 import NavBar from './components/NavBar';
-import BoardContainer from './containers/BoardContainer'
+// SearchContainer is a parent to others but a child component of App
 import SearchContainer from './containers/SearchContainer'
+import BoardContainer from './containers/BoardContainer'
 import CreateBoard from './components/CreateBoard';
-import ShowBoard from './components/ShowBoard';
+import BoardShow from './components/BoardShow';
 import BoardsList from './components/BoardsList';
 
 class App extends React.Component {
+
+
+
   render () {
     return (
       <Router>
@@ -21,7 +26,7 @@ class App extends React.Component {
           </div>
 
             <Route exact path="/create" component={CreateBoard} />
-            <Route exact path="/show" component={ShowBoard} />
+            <Route exact path="/show" component={BoardShow} />
             <Route exact path="/index" component={BoardsList} />
 
           <div className="Pinboard">
