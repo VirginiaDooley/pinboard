@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Form, Input, Col} from 'reactstrap';
 import SearchResults from '../components/SearchResults'
 import BoardContainer from './BoardContainer'
+import { createStore } from 'redux';
 
 class SearchContainer extends Component {
 
@@ -10,7 +11,14 @@ class SearchContainer extends Component {
       this.state = {
       query: '',
       images: [],
-      boardImages: []
+      boardImages: [
+        {
+          boardImage: {
+            url: '',
+            description: ''
+          },
+        }
+      ]
     }
   }
 
@@ -48,6 +56,7 @@ class SearchContainer extends Component {
     }
 
     chooseImage = (event) => {
+      // debugger
       console.log("event handler is working!");
       this.setState({ boardImages: [...this.state.boardImages, event.target.src]});
       console.log("now this is the current state", this.state)
