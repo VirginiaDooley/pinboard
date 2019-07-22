@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
 import manageBoards from './reducers/manageBoards';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(
-  manageBoards,
+  manageBoards, applyMiddleware(thunk)
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 // By including the Provider,
