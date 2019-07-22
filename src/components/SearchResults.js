@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SearchResults = ({image}) =>
+const SearchResults = ({image}, index) =>
   <div>
-    <img src={image.urls.thumb} alt={image.alt_description}/>
+    <img src={image.urls.thumb} alt={image.description} key={index}/>
   </div>
 
 export default SearchResults;

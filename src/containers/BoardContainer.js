@@ -9,7 +9,7 @@ class BoardContainer extends Component {
 
       return (
         <div>
-          <BoardShow boardImages={this.props.boardImages} />
+          <BoardShow />
         </div>
       )
     }

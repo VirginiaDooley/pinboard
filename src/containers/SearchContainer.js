@@ -3,91 +3,65 @@ import { Button, Form, Input, Col} from 'reactstrap';
 import { connect } from 'react-redux';
 import SearchResults from '../components/SearchResults'
 import BoardContainer from './BoardContainer'
+import manageBoards from '../reducers/manageBoards';
+import { images } from '../actions/images'
 
 class SearchContainer extends Component {
 
-  constructor(props){
-    super(props)
-      this.state = {
-      query: '',
-      images: [],
-      boardImages: [
-        {
-          boardImage: {
-            url: '',
-            description: ''
-          },
-        }
-      ]
-    }
+  constructor(){
+    super()
+      this.state = {query:''}
   }
 
-  handleSearchInput = (event) => {
+  handleChange = event => {
     this.setState({
       query: event.target.value
     })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state.query)
-    const q = this.state.query
-    const KEY = 'd5c39b1d4142cbfb56008c655ecd3b9bbb420cf12e53130dc9cbdf1ef67f746b'
-    const URL = `https://api.unsplash.com/search/photos?page=1&query=${q}`
-
-    fetch(URL, {
-
-      headers: {
-        Authorization: `Client-ID ${KEY}`
-      }
-    })
-    .then(function(response) {
-    		if (response.status >= 400) {
-    			throw new Error("Bad response from server");
-    		}
-    		return response.json();
-
-    	})
-    	.then((images) => {
-        this.setState({images: images.results});
-        // this.setState({images: images.map( image => ({ url: image.results.urls.thumb,  description: image.results.description }) )});
-        console.log(this.state.images)
-      })
-    }
-
-    chooseImage = (event) => {
-      // debugger
-      console.log("event handler is working!");
-      this.setState({ boardImages: [...this.state.boardImages, event.target.src]});
-      console.log("now this is the current state", this.state)
-    }
+    this.props.dispatch({ type: 'FETCH_IMAGES', payload: this.state });
+  }
 
     render () {
-      const renderImages = this.state.images.map((image, index) =>
-      (<SearchResults image={image} key={index} url={image.url} description={image.description}/>))
+      // const renderImages = this.state.images.map((image, index) =>
+      // (<SearchResults image={image} key={index} url={image.url} description={image.description}/>))
       return (
         <div>
-          <Form onSubmit={this.handleSubmit} onChange={this.handleSearchInput}
-            value={this.state.value}>
+          <Form onSubmit={event => this.handleSubmit(event)}>
             <Col>
-              <Input type="text" name="search" id="search" bsSize="lg"/>
+              <Input type="query" name="search" id="search" bsSize="lg" value={this.state.query} onChange={event => this.handleChange(event)} />
               <Button id="button">Search</Button>
             </Col>
           </Form>
 
-          <h4>Search and click images to add to your board.</h4>
+          // <h4>Search and click images to add to your board.</h4>
 
-            <div className="grid-container">
-              <div className="grid-item">
-                <div className="image" onClick={this.chooseImage} >
-                  {renderImages}
-                </div>
-              </div>
-            </div>
+            // <div className="grid-container">
+            //   <div className="grid-item">
+            //     <div className="image" onClick={this.chooseImage} >
+            //
+            //     </div>
+            //   </div>
+            // </div>
 
         </div>
       )
     }
 }
 
-export default SearchContainer;
+const mapDispatchToProps = dispatch => {
+  return {
+    updateSearch: formData => dispatch({ type: 'FETCH_IMAGES', payload: formData })
+  }
+}
+
+// In this component, we're not currently concerned
+// with writing a mapStateToProps function
+// (the first argument passed to connect)
+//  as this component doesn't need any state.
+//  Since we only need to dispatch an action here and
+//  not getting information from our store, we can use
+//  null instead of mapStateToProps as the first argument.
+export default connect(null, mapDispatchToProps)(SearchContainer)

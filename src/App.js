@@ -10,9 +10,8 @@ import CreateBoard from './components/CreateBoard';
 import BoardShow from './components/BoardShow';
 import BoardsList from './components/BoardsList';
 
+
 class App extends React.Component {
-
-
 
   render () {
     return (

@@ -18,6 +18,15 @@ OR
 
 Should I intro Redux at this point to manage global state
 
+steps to REDUX
+write an action
+write a function reducer
+
+
+
+
+
+
 other tasks:
 create new board
 save board
@@ -49,4 +58,8 @@ has_and_belongs_to_many*
 Refer back here when you're ready to build out the controller actions https://instruction.learn.co/student/video_lectures#/?query=react-redux
 
 **FURTHER DEVELOPMENT GOALS**
-*edit and update boards
+*edit and update boards**
+
+
+**CSS**
+responsive components
