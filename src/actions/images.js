@@ -1,11 +1,32 @@
 //actions//
 
 export const fetchImages = (formData) => {
+  const q = this.state.query
+  const KEY = 'd5c39b1d4142cbfb56008c655ecd3b9bbb420cf12e53130dc9cbdf1ef67f746b'
+  const URL = `https://api.unsplash.com/search/photos?page=1&query=${q}`
+
+  const searchResults = fetch(URL, {
+    headers: {
+      Authorization: `Client-ID ${KEY}`
+    }
+  }).then(function(response) {
+    	if (response.status >= 400) {
+    		throw new Error("Bad response from server");
+    	}
+    	return response.json();
+    	})
+    	// .then((images) => {
+      //   this.setState({images: images.results});
+      //   // this.setState({images: images.map( image => ({ url: image.results.urls.thumb,  description: image.results.description }) )});
+      //   console.log(this.state.images)
+      // })
+  // end of fetch
   return {
     type: "FETCH_IMAGES",
-    formData
-  }
+    searchResults
+  };
 }
+
 
 // export const addImage = image => ({
 //   type: 'ADD_IMAGE',

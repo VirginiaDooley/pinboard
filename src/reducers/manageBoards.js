@@ -7,12 +7,12 @@ export default function manageBoards
       boards: [],
       images: [],
       query: ''
-  }, action) 
+  }, action)
     {
     switch (action.type) {
 
     case 'FETCH_IMAGES': {
-      return action.formData
+      return action.searchResults
     }
     // case 'ADD_IMAGE': {
     //   return state.concat(action.dinner);
@@ -37,29 +37,7 @@ export default function manageBoards
     //   this.props.fetchImages();
     //   event.preventDefault();
     //   console.log(this.state.query)
-    //   const q = this.state.query
-    //   const KEY = 'd5c39b1d4142cbfb56008c655ecd3b9bbb420cf12e53130dc9cbdf1ef67f746b'
-    //   const URL = `https://api.unsplash.com/search/photos?page=1&query=${q}`
     //
-    //   fetch(URL, {
-    //
-    //     headers: {
-    //       Authorization: `Client-ID ${KEY}`
-    //     }
-    //   })
-    //   .then(function(response) {
-    //   		if (response.status >= 400) {
-    //   			throw new Error("Bad response from server");
-    //   		}
-    //   		return response.json();
-    //
-    //   	})
-    //   	.then((images) => {
-    //       this.setState({images: images.results});
-    //       // this.setState({images: images.map( image => ({ url: image.results.urls.thumb,  description: image.results.description }) )});
-    //       console.log(this.state.images)
-    //     })
-    //   }
     //
     //   chooseImage = (event) => {
     //     // debugger
