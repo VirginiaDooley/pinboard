@@ -9,7 +9,7 @@ class SearchContainer extends Component {
 
   state = {
     query: '',
-    images: [],
+    searchResults: [],
     boards: []
   }
 
@@ -19,12 +19,15 @@ class SearchContainer extends Component {
     })
   }
 
+  updateStateImages = (images) => {
+    this.setState({
+      searchResults: images
+    })
+  }
+
   handleSubmit = event => {
     event.preventDefault();
-    // resets search
-    // this.setState({
-    //   query: ''
-    // })
+
     const query = this.state.query
     const KEY = 'd5c39b1d4142cbfb56008c655ecd3b9bbb420cf12e53130dc9cbdf1ef67f746b'
     const URL = `https://api.unsplash.com/search/photos?page=1&query=${query}`
@@ -38,9 +41,7 @@ class SearchContainer extends Component {
       return response.json()
     })
     .then(responseJSON => {
-      debugger
-      return responseJSON.images;
-      console.log(responseJSON.images)
+      this.updateStateImages(responseJSON.results)
     })
   }
 
@@ -52,7 +53,7 @@ class SearchContainer extends Component {
   //   }
 
     render () {
-
+      console.log(this.state)
       return (
         <div>
           <Form onSubmit={this.handleSubmit}>
@@ -63,17 +64,12 @@ class SearchContainer extends Component {
           </Form>
             <div className="grid-container">
               <div className="grid-item">
-                {this.state.images}
+                  <SearchResults searchResults={this.state.searchResults} />
               </div>
             </div>
         </div>
       )
     }
 }
-
-// connects to our reducers
-// function mapStateToProps(state) {
-//   return { images: state.images }
-// }
 
 export default connect()(SearchContainer);
