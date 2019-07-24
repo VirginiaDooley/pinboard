@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+// import { connect } from 'react-redux';
+// import { Row, Col } from 'reactstrap';
 
 class SearchResults extends Component {
 
   renderImages = (props) => this.props.searchResults.map(image =>
   <img
      key={image.id}
-     style={{ height: '220px', width: 'auto', margin: '5px' }}
-     src={image.urls.thumb}
+     src={image.urls.small}
      alt={image.description}
    />)
 
@@ -19,5 +20,11 @@ class SearchResults extends Component {
      )
    }
 }
+
+// const mapStateToProps = state => {
+//   return {
+//     images: state.images
+//   }
+// }
 
 export default SearchResults;
