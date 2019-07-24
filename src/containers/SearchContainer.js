@@ -2,66 +2,78 @@ import React, { Component } from 'react';
 import { Button, Form, Input, Col} from 'reactstrap';
 import { connect } from 'react-redux';
 import SearchResults from '../components/SearchResults'
-import BoardContainer from './BoardContainer'
+import BoardContainer from './BoardContainer';
 import manageBoards from '../reducers/manageBoards';
-import { images } from '../actions/images'
 
 class SearchContainer extends Component {
 
-  constructor(){
-    super()
-      this.state = {query:''}
+  state = {
+    query: '',
+    images: [],
+    boards: []
   }
 
   handleChange = event => {
     this.setState({
-      query: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.dispatch({ type: 'FETCH_IMAGES', payload: this.state });
+    // resets search
+    // this.setState({
+    //   query: ''
+    // })
+    const query = this.state.query
+    const KEY = 'd5c39b1d4142cbfb56008c655ecd3b9bbb420cf12e53130dc9cbdf1ef67f746b'
+    const URL = `https://api.unsplash.com/search/photos?page=1&query=${query}`
+
+    const images = fetch(URL, {
+      headers: {
+        Authorization: `Client-ID ${KEY}`
+      }
+    })
+    .then(response => {
+      return response.json()
+    })
+    .then(responseJSON => {
+      debugger
+      return responseJSON.images;
+      console.log(responseJSON.images)
+    })
   }
 
+  //   chooseImage = (event) => {
+  //     // debugger
+  //     console.log("event handler is working!");
+  //     this.setState({ boardImages: [...this.state.boardImages, event.target.src]});
+  //     console.log("now this is the current state", this.state)
+  //   }
+
     render () {
-      // const renderImages = this.state.images.map((image, index) =>
-      // (<SearchResults image={image} key={index} url={image.url} description={image.description}/>))
+
       return (
         <div>
-          <Form onSubmit={event => this.handleSubmit(event)}>
+          <Form onSubmit={this.handleSubmit}>
             <Col>
-              <Input type="query" name="search" id="search" bsSize="lg" value={this.state.query} onChange={event => this.handleChange(event)} />
-              <Button id="button">Search</Button>
+              <Input type="text" name="query" onChange={this.handleChange} value={this.state.query}/>
+              <Button type="submit">Search</Button>
             </Col>
           </Form>
-
-          // <h4>Search and click images to add to your board.</h4>
-
-            // <div className="grid-container">
-            //   <div className="grid-item">
-            //     <div className="image" onClick={this.chooseImage} >
-            //
-            //     </div>
-            //   </div>
-            // </div>
-
+            <div className="grid-container">
+              <div className="grid-item">
+                {this.state.images}
+              </div>
+            </div>
         </div>
       )
     }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    updateSearch: formData => dispatch({ type: 'FETCH_IMAGES', payload: formData })
-  }
-}
+// connects to our reducers
+// function mapStateToProps(state) {
+//   return { images: state.images }
+// }
 
-// In this component, we're not currently concerned
-// with writing a mapStateToProps function
-// (the first argument passed to connect)
-//  as this component doesn't need any state.
-//  Since we only need to dispatch an action here and
-//  not getting information from our store, we can use
-//  null instead of mapStateToProps as the first argument.
-export default connect(null, mapDispatchToProps)(SearchContainer)
+export default connect()(SearchContainer);
