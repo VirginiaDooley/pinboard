@@ -1,53 +1,44 @@
-const initialState = {
-  query: ''
-}
+///reducer///
 
-export default function manageBoards
-  (state = {
-      boards: [],
-      images: [],
-      query: ''
-  }, action)
-    {
-    switch (action.type) {
+const initialState = {
+  loading: false,
+  boards: [],
+  boardImages: []
+}
+export default (state = initialState, action) => {
+
+  switch (action.type) {
+
+    case 'LOADING_IMAGE_SEARCH': {
+      return {...state, loading: true};
+    }
 
     case 'FETCH_IMAGES': {
-      return action.searchResults
+      return {...state, loading: false, images: action.payload};
+      // return state.concat(action.images);
     }
-    // case 'ADD_IMAGE': {
-    //   return state.concat(action.dinner);
+
+    // case 'ADD_IMAGE_TO_BOARD': {
+    //   return state.concat(action.searchResults);
     // }
 
-    // case 'REMOVE_DINNER': {
-    //   const idx = state.findIndex(dinner => dinner.id === action.dinnerId);
-    //   return [...state.slice(0, idx), ...state.slice(idx + 1)]
+    // case 'CREATE_BOARD': {
+    //
     // }
     //
-    // case 'SET_DINNERS': {
-    //   return action.dinners;
-    // }
+    // case 'SAVE_BOARD': {
     //
-    // case 'SUBSTITUTE_DINNER': {
-    //   const index = state.findIndex(dinner => dinner.id === action.dinner.id);
-    //   return [...state.slice(0, index), action.dinner, ...state.slice(index+1)]
     // }
 
-
-    // handleSubmit = (event) => {
-    //   this.props.fetchImages();
-    //   event.preventDefault();
-    //   console.log(this.state.query)
+    // case 'SHOW_BOARD': {
     //
+    // }
     //
-    //   chooseImage = (event) => {
-    //     // debugger
-    //     console.log("event handler is working!");
-    //     this.setState({ boardImages: [...this.state.boardImages, event.target.src]});
-    //     console.log("now this is the current state", this.state)
-    //   }
+    // case 'BOARD_INDEX': {
+    //
+    // }
 
-    default: {
+    default:
       return state;
-    }
   }
 };

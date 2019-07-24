@@ -10,7 +10,8 @@ class SearchContainer extends Component {
   state = {
     query: '',
     searchResults: [],
-    boards: []
+    boards: [],
+    boardImages: []
   }
 
   handleChange = event => {
@@ -44,13 +45,6 @@ class SearchContainer extends Component {
       this.updateStateImages(responseJSON.results)
     })
   }
-
-  //   chooseImage = (event) => {
-  //     // debugger
-  //     console.log("event handler is working!");
-  //     this.setState({ boardImages: [...this.state.boardImages, event.target.src]});
-  //     console.log("now this is the current state", this.state)
-  //   }
 
     render () {
       console.log(this.state)
