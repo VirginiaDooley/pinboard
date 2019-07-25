@@ -9,6 +9,8 @@ class SearchResults extends Component {
      key={image.id}
      src={image.urls.small}
      alt={image.description}
+     onClick={this.props.chooseImage}
+     name={image}
    />)
 
   render() {
@@ -20,11 +22,5 @@ class SearchResults extends Component {
      )
    }
 }
-
-// const mapStateToProps = state => {
-//   return {
-//     images: state.images
-//   }
-// }
 
 export default SearchResults;
