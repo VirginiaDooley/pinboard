@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-const BoardShow = () => (
-  <div>
+class BoardShow extends Component {
 
-  </div>
-);
+  // renderBoardImages = (props) => this.props.boardImages.map(image =>
+  // <img
+  //    key={image.id}
+  //    src={image.urls.small}
+  //    alt={image.description}
+  //  />)
 
-export default BoardShow
+  render() {
+
+     return (
+       <div>
+         <p>render boardImages here</p>
+       </div>
+     )
+   }
+}
+
+export default BoardShow;
