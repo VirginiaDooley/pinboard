@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // This container can render either
-import BoardShow from '../components/BoardShow'
-
+import BoardShow from '../components/BoardShow';
+import { connect } from 'react-redux';
+import { addImageToBoard } from '../actions/boards'
 
 class BoardContainer extends Component {
 
@@ -9,10 +10,20 @@ class BoardContainer extends Component {
 
       return (
         <div>
-          <BoardShow />
+          // <BoardShow boardImages={this.props.boardImages}/>
         </div>
       )
     }
 }
 
-export default BoardContainer;
+const mapStateToProps = (state) => ({
+  boardImages: state.boardImages
+})
+
+const mapDispatchToProps = dispatch => ({
+    addImageToBoard: () => {
+      dispatch(addImageToBoard())
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(BoardContainer);
