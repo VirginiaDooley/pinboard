@@ -9,8 +9,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(
-  rootReducer, compose((window.devToolsExtension ? window.devToolsExtension() : f => f()),
-  applyMiddleware(thunk)))
+  rootReducer,
+  // compose((window.devToolsExtension ?
+    // window.devToolsExtension() : f => f()),
+  applyMiddleware(thunk))
+// )
 // By including the Provider,
 // we'll be able to access our Redux store
 // and/or dispatch actions from any component we want,
