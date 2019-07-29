@@ -13,7 +13,7 @@ class BoardContainer extends Component {
             return <BoardShow boardImages={this.props.boardImages}
               id={image.id}
               key={index}
-              src={image.url}
+              src={image.src}
               alt={image.alt}
             />
         }))

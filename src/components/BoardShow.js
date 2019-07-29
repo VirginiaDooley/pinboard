@@ -5,7 +5,7 @@ class BoardShow extends Component {
       let images = this.props.boardImages.map((image, index) =>
         <img
           className="image"
-          src={image.url}
+          src={image.src}
           id={image.id}
           key={index}
           alt={image.alt}
