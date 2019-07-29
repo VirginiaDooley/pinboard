@@ -51,9 +51,9 @@ class SearchContainer extends Component {
  )
 
    chooseImage = (event) => {
-     let imageId = event.target.id
-     console.log(imageId)
-     this.props.addImageToBoard(imageId)
+     let image = event.target
+     console.log(image)
+     this.props.addImageToBoard(image)
    }
 
     render () {

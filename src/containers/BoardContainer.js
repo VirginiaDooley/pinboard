@@ -14,7 +14,7 @@ class BoardContainer extends Component {
               id={image.id}
               key={index}
               src={image.url}
-              alt={image.description}
+              alt={image.alt}
             />
         }))
         }
@@ -27,7 +27,6 @@ class BoardContainer extends Component {
     }
 
   render() {
-    console.log(this.props.boardImages)
     return (
       <div>
         {this.renderBoardImages()}
