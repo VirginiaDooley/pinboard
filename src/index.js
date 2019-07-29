@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers';
@@ -9,8 +9,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(
-  rootReducer, applyMiddleware(thunk))
-  console.log(store.getState())
+  rootReducer, compose((window.devToolsExtension ? window.devToolsExtension() : f => f()),
+  applyMiddleware(thunk)))
 // By including the Provider,
 // we'll be able to access our Redux store
 // and/or dispatch actions from any component we want,
