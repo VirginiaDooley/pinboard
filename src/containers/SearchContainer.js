@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import { Button, Form, Input, Col} from 'reactstrap';
+import { Button, Form, Input, Col, Row} from 'reactstrap';
 import { connect } from 'react-redux';
-import SearchResults from '../components/SearchResults'
-import BoardContainer from './BoardContainer';
-import manageBoards from '../reducers/manageBoards';
+import { addImageToBoard } from '../actions/images'
 
 class SearchContainer extends Component {
 
   state = {
     query: '',
     searchResults: [],
-    boards: [],
-    boardImages: []
   }
 
   handleChange = event => {
@@ -46,6 +42,20 @@ class SearchContainer extends Component {
     })
   }
 
+  renderSearchResults = () => this.state.searchResults.map(image =>
+    <img id={image.id}
+       key={image.id}
+       src={image.urls.small}
+       alt={image.description}
+     />
+ )
+
+   chooseImage = (event) => {
+     let imageId = event.target.id
+     console.log(imageId)
+     this.props.addImageToBoard(imageId)
+   }
+
     render () {
       console.log(this.state)
       return (
@@ -56,14 +66,21 @@ class SearchContainer extends Component {
               <Button type="submit">Search</Button>
             </Col>
           </Form>
-            <div className="grid-container">
-              <div className="grid-item">
-                  <SearchResults searchResults={this.state.searchResults} />
+          <Row>
+            <Col>
+              <div className="image" onClick={this.chooseImage}>
+                {this.renderSearchResults()}
               </div>
-            </div>
+            </Col>
+        </Row>
         </div>
       )
     }
 }
 
-export default connect()(SearchContainer);
+const mapDispatchToProps = dispatch => ({
+    addImageToBoard: newBoardImage => { dispatch(addImageToBoard(newBoardImage))
+  }
+})
+
+export default connect(null, mapDispatchToProps)(SearchContainer)
