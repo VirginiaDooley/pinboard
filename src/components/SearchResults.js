@@ -1,27 +1,24 @@
-// import React, { Component } from 'react';
-// import { Row, Col } from 'reactstrap';
-//
-// class SearchResults extends Component {
-//
-//   renderImages = (props) => this.props.searchResults.map(image =>
-//   <img
-//      key={image.id}
-//      src={image.urls.small}
-//      alt={image.description}
-//      name={image}
-//      onClick={this.props.chooseImage}
-//    />)
-//
-//   render() {
-//
-//      return (
-//          <Row>
-//            <Col>
-//              {this.renderImages()}
-//            </Col>
-//          </Row>
-//      )
-//    }
-// }
-//
-// export default SearchResults;
+import React from 'react';
+import { Row, Col } from 'reactstrap';
+
+const SearchResults = (props) => {
+
+  const renderImages = () => props.searchResults.map(image =>
+  <img
+     key={image.id}
+     src={image.urls.small}
+     alt={image.description}
+     name={image}
+     onClick={props.chooseImage}
+   />)
+
+   return (
+       <Row>
+         <Col>
+           {renderImages()}
+         </Col>
+       </Row>
+  )
+}
+
+export default SearchResults;

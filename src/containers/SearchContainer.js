@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Form, Input, Col, Row} from 'reactstrap';
 import { connect } from 'react-redux';
 import { addImageToBoard } from '../actions/images'
+import SearchResults from '../components/SearchResults'
 
 class SearchContainer extends Component {
 
@@ -42,14 +43,6 @@ class SearchContainer extends Component {
     })
   }
 
-  renderSearchResults = () => this.state.searchResults.map(image =>
-    <img id={image.id}
-       key={image.id}
-       src={image.urls.small}
-       alt={image.description}
-     />
- )
-
    chooseImage = (event) => {
      let image = event.target
      console.log(image)
@@ -68,8 +61,8 @@ class SearchContainer extends Component {
           </Form>
           <Row>
             <Col>
-              <div className="image" onClick={this.chooseImage}>
-                {this.renderSearchResults()}
+              <div className="image">
+                < SearchResults searchResults={this.state.searchResults} chooseImage={this.chooseImage} />
               </div>
             </Col>
         </Row>
