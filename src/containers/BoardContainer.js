@@ -5,12 +5,11 @@ import { connect } from 'react-redux';
 class BoardContainer extends Component {
 
   renderBoardImages = () => {
-
     const boardImages = this.props.boardImages;
       if (boardImages.length > 0) {
         return (
           boardImages.map((image, index) => {
-            return <BoardShow boardImages={this.props.boardImages}
+            return <BoardShow 
               id={image.id}
               key={index}
               src={image.src}
@@ -20,8 +19,8 @@ class BoardContainer extends Component {
         }
         return (
           <h5>
-            Click an image from your search results
-            to add it to your board.
+            Click images from your search results
+            to add them to your board.
           </h5>
         )
     }

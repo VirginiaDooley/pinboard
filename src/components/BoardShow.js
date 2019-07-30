@@ -1,21 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class BoardShow extends Component {
-    render () {
-      let images = this.props.boardImages.map((image, index) =>
-        <img
-          className="image"
-          src={image.src}
-          id={image.id}
-          key={index}
-          alt={image.alt}
-          />)
-      return (
-      <div>
-        {images}
-      </div>
-    )
-  }
+ const BoardShow = (props) => {
+  return (
+    <img src={props.src} alt={props.alt}/>
+  )
 }
 
 export default BoardShow;
