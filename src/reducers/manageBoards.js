@@ -10,16 +10,12 @@ export default (state = initialState, action) => {
   switch (action.type) {
 
     case 'ADD_IMAGE_TO_BOARD': {
-      // debugger
+  // debugger
       return { boardImages:
         [...state.boardImages, action.newBoardImages]};
     }
 
-    // case 'CREATE_BOARD': {
-    //
-    // }
-    //
-    // case 'SAVE_BOARD': {
+    // case 'BOARD_INDEX': {
     //
     // }
 
@@ -27,9 +23,11 @@ export default (state = initialState, action) => {
     //
     // }
     //
-    // case 'BOARD_INDEX': {
+
+    // case 'CREATE_BOARD': {
     //
     // }
+
 
     default:
       return state;
