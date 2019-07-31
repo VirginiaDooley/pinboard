@@ -15,6 +15,11 @@ export default (state = initialState, action) => {
         [...state.boardImages, action.newBoardImages]};
     }
 
+    case 'SAVE_BOARD': {
+      return { ...state, board: action.payload
+      }
+    }
+
     // case 'BOARD_INDEX': {
     //
     // }
