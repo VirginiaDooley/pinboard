@@ -1,25 +1,46 @@
 // actions
 
-const URL = 'http://localhost:3001'
-
+const API_URL = 'http://localhost:3001/api/v1/boards'
 export const saveBoard = board => {
-return dispatch => {
- fetch(URL, {
-      method: "POST",
-      body: JSON.stringify(board),
+  debugger
+return dispatch =>
+ fetch(API_URL, {
+   headers: { 'Accept': 'application/json',
+   'Content-Type': 'application/json'},
+   method: "POST",
+   body: board
   })
-  .catch(err => {
-    console.log(err);
+  .catch(error => {
+    console.log(error);
     alert("Board save failed, please try again!");
   })
-  .then(res => res.json())
-    .then(board => {
+  .then(results =>
+      results.json())
+    .then(board =>
+      {
       debugger
-    return dispatch({type: 'SAVE_BOARD', payload: board});
-  });
-
- }
+        return dispatch({type: 'SAVE_BOARD', payload: board});
+      });
 }
+
+// #index
+// export const boardList = () => ({
+//
+// build fetch request
+// })
+
+// #new
+// export const createBoard = () => ({
+//
+// })
+
+// #show
+// export const showBoard = boardId => ({
+//
+// build fetch request
+// })
+
+
 
 
 
