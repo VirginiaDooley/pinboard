@@ -1,3 +1,28 @@
+// actions
+
+const URL = 'http://localhost:3001'
+
+export const saveBoard = board => {
+return dispatch => {
+ fetch(URL, {
+      method: "POST",
+      body: JSON.stringify(board),
+  })
+  .catch(err => {
+    console.log(err);
+    alert("Board save failed, please try again!");
+  })
+  .then(res => res.json())
+    .then(board => {
+      debugger
+    return dispatch({type: 'SAVE_BOARD', payload: board});
+  });
+
+ }
+}
+
+
+
 // this is an action which is a JS object
 // export const addImage = image => ({
 //   type: 'ADD_IMAGE',
@@ -23,7 +48,7 @@
 //   }
 // }
 
-/
+
 // export const createBoard = (boards, routerHistory) => {
 //   return dispatch => {
 //     return fetch(`${API_URL}/boards`, {
