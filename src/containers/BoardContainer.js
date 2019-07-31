@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import BoardShow from '../components/BoardShow';
 import { connect } from 'react-redux';
+import { saveBoard } from '../actions/boards'
 
 class BoardContainer extends Component {
 
   state = {
-    title: ''
+    title: 'sample title'
   }
   renderBoardImages = () => {
     const boardImages = this.props.boardImages;
@@ -32,16 +33,19 @@ class BoardContainer extends Component {
         [event.target.name]: event.target.value
       })
     }
-    //
-    // handleSave = (event) => {
-    //   event.preventDefault();
-    //   const params = {
-    //     board: {
-    //       title:,
-    //       image_attributes: {
-    //         images: this.props.boardImages
-    //       }}
-    //     }
+
+    handleSave = (event) => {
+      event.preventDefault();
+      const params = {
+        board: {
+          title: this.state.title,
+          image_attributes: {
+            images: this.props.boardImages
+          }}
+        }
+      this.props.saveBoard(params)
+        // redirect to show board :id
+      }
 
     render() {
       return (
@@ -52,6 +56,7 @@ class BoardContainer extends Component {
             value={this.state.title}
             placeholder="Add your board title form here."
             onChange={this.handleTitleChange}/>
+          <button onClick={this.handleSave}>Save</button>
           {this.renderBoardImages()}
         </div>
       )
@@ -65,4 +70,4 @@ class BoardContainer extends Component {
     }
   }
 
-  export default connect(mapStateToProps)(BoardContainer);
+  export default connect(mapStateToProps, {saveBoard})(BoardContainer);
