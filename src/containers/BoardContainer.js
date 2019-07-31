@@ -36,6 +36,7 @@ class BoardContainer extends Component {
 
     handleSave = (event) => {
       event.preventDefault();
+      debugger
       const params = {
         board: {
           title: this.state.title,
