@@ -1,8 +1,8 @@
 ///reducer; returns a new state///
 
 const initialState = {
-  loading: false,
-  boardImages: []
+  loading:false,
+  boardImages:[]
 }
 
 export default (state = initialState, action) => {
