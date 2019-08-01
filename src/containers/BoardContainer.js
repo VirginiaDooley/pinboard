@@ -6,7 +6,7 @@ import { saveBoard } from '../actions/boards'
 class BoardContainer extends Component {
 
   state = {
-    title: 'sample title'
+    title: "sample title"
   }
   renderBoardImages = () => {
     const boardImages = this.props.boardImages;
@@ -36,15 +36,13 @@ class BoardContainer extends Component {
 
     handleSave = (event) => {
       event.preventDefault();
-      debugger
-      const params = {
-        board: {
+      const board = {
           title: this.state.title,
           image_attributes: {
-            images: this.props.boardImages
-          }}
+            images: this.props.boardImages.map(image => image.src)
+          }
         }
-      this.props.saveBoard(params)
+      this.props.saveBoard(board)
         // redirect to show board :id
       }
 
