@@ -2,23 +2,26 @@
 
 const initialState = {
   loading:false,
+  boards: [],
   boardImages:[]
 }
 
 export default (state = initialState, action) => {
+  console.log(action)
 
   switch (action.type) {
 
     case 'ADD_IMAGE_TO_BOARD': {
   // debugger
-      return { boardImages:
+      return { ...state, boardImages:
         [...state.boardImages, action.newBoardImages]};
     }
 
     case 'SAVE_BOARD': {
-      return { ...state, board: action.payload
-      }
+      debugger
+      return { ...state, boards: [...state.boards, action.payload]};
     }
+
 
     // case 'BOARD_INDEX': {
     //
