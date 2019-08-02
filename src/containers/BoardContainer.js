@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import BoardShow from '../components/BoardShow';
 import { connect } from 'react-redux';
 import { saveBoard } from '../actions/boards'
-
+import BoardsList from '../components/BoardsList'
 class BoardContainer extends Component {
 
   state = {
     title: "sample title"
   }
+
   renderBoardImages = () => {
     const boardImages = this.props.boardImages;
     if (boardImages.length > 0) {
@@ -24,7 +25,7 @@ class BoardContainer extends Component {
       return (
         <h5>Click images from your search results
           to add them to your board.</h5>
-        )
+      )
     }
 
     handleTitleChange = (event) => {
@@ -37,36 +38,39 @@ class BoardContainer extends Component {
     handleSave = (event) => {
       event.preventDefault();
       const board = {
-          title: this.state.title,
-          image_attributes: {
-            images: this.props.boardImages.map(image => image.src)
-          }
+        title: this.state.title,
+        image_attributes: {
+          images: this.props.boardImages.map(image => image.src)
         }
-      this.props.saveBoard(board)
-        // redirect to show board :id
       }
-
-    render() {
-      return (
-        <div className="title-form">
-          <input
-            type="text"
-            name="title"
-            value={this.state.title}
-            placeholder="Add your board title form here."
-            onChange={this.handleTitleChange}/>
-          <button onClick={this.handleSave}>Save</button>
-          {this.renderBoardImages()}
-        </div>
-      )
+      this.props.saveBoard(board)
+      console.log(board)
+      // redirect to show board :id
     }
-  }
 
-  const mapStateToProps = state => {
-    console.log(state)
-    return {
-      boardImages: state.manageBoards.boardImages
+      render() {
+        return (
+          <div className="title-form">
+            <input
+              type="text"
+              name="title"
+              value={this.state.title}
+              placeholder="Add your board title form here."
+              onChange={this.handleTitleChange}/>
+            <button onClick={this.handleSave}>Save</button>
+            {this.renderBoardImages()}
+          </div>
+        )
+      }
     }
-  }
 
-  export default connect(mapStateToProps, {saveBoard})(BoardContainer);
+    // getting state from redux store
+    const mapStateToProps = state => {
+      console.log(state)
+      return {
+        boardImages: state.manageBoards.boardImages,
+        boards: state.manageBoards.boards
+      }
+    }
+
+    export default connect(mapStateToProps, {saveBoard})(BoardContainer);
