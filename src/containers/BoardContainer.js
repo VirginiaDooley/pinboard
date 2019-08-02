@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import BoardShow from '../components/BoardShow';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { saveBoard } from '../actions/boards'
+import BoardShow from '../components/BoardShow';
 import BoardsList from '../components/BoardsList'
+
 class BoardContainer extends Component {
 
   state = {
@@ -44,33 +46,32 @@ class BoardContainer extends Component {
         }
       }
       this.props.saveBoard(board)
-      console.log(board)
-      // redirect to show board :id
+      this.props.history.push('/index')
     }
 
-      render() {
-        return (
-          <div className="title-form">
-            <input
-              type="text"
-              name="title"
-              value={this.state.title}
-              placeholder="Add your board title form here."
-              onChange={this.handleTitleChange}/>
-            <button onClick={this.handleSave}>Save</button>
-            {this.renderBoardImages()}
-          </div>
-        )
-      }
+    render() {
+      return (
+        <div className="title-form">
+          <input
+            type="text"
+            name="title"
+            value={this.state.title}
+            placeholder="Add your board title form here."
+            onChange={this.handleTitleChange}/>
+          <button onClick={this.handleSave}>Save</button>
+          {this.renderBoardImages()}
+        </div>
+      )
     }
+}
 
-    // getting state from redux store
-    const mapStateToProps = state => {
-      console.log(state)
-      return {
-        boardImages: state.manageBoards.boardImages,
-        boards: state.manageBoards.boards
-      }
-    }
+// getting state from redux store
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    boardImages: state.manageBoards.boardImages,
+    boards: state.manageBoards.boards
+  }
+}
 
-    export default connect(mapStateToProps, {saveBoard})(BoardContainer);
+export default connect(mapStateToProps, {saveBoard}) (withRouter(BoardContainer));

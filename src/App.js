@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { connect } from 'react-redux'
 // App is a parent component
 import './App.css';
 import NavBar from './components/NavBar';
@@ -9,7 +10,6 @@ import BoardContainer from './containers/BoardContainer'
 import CreateBoard from './components/CreateBoard';
 import BoardShow from './components/BoardShow';
 import BoardsList from './components/BoardsList';
-
 
 class App extends React.Component {
 
@@ -24,19 +24,27 @@ class App extends React.Component {
             <SearchContainer />
           </div>
 
-            <Route exact path="/create" component={CreateBoard} />
-            <Route exact path="/show" component={BoardShow} />
-            <Route exact path="/index" component={BoardsList} />
+          <Route exact path="/create" component={CreateBoard} />
+          <Route exact path="/show" component={BoardShow} />
+          <Route exact path="/index" render={boards =>
+              <BoardsList {...boards} boards={this.props.boards} />} />
 
-          <div className="Pinboard">
-            <div className="row:after">
-              <BoardContainer />
+            <div className="Pinboard">
+              <div className="row:after">
+                <BoardContainer />
+              </div>
             </div>
           </div>
-        </div>
-      </Router>
-    );
+        </Router>
+      );
+    }
+}
+
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    boards: state.manageBoards.boards
   }
 }
 
-export default App;
+export default connect(mapStateToProps)(App);
