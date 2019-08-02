@@ -7,7 +7,7 @@ import SearchResults from '../components/SearchResults'
 class SearchContainer extends Component {
 
   state = {
-    query: '',
+    query: "",
     searchResults: [],
   }
 
