@@ -27,11 +27,11 @@
 
 .form-control {
   margin:30px auto;
-  width:200px;
+  width:150px;
   align-items: left;
   margin-left: 10px;
   margin-right: 20px;
-  padding: 20px;
+  padding: 10px;
   position:relative;
 }
 
@@ -51,7 +51,8 @@ button {
   margin-left: 10px;
   display: grid;
   justify-content: space-evenly;
-  height: 3000px;
+  height: 2000px;
+  width: 700px;
   position:relative;
 }
 

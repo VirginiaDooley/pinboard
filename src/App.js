@@ -29,12 +29,10 @@ class App extends React.Component {
           <Route exact path="/index" render={boards =>
               <BoardsList {...boards} boards={this.props.boards} />} />
 
-            <div className="Pinboard">
-              <div className="row:after">
-                <BoardContainer />
-              </div>
+            <div className="grid-container">
+              <BoardContainer />
             </div>
-          </div>
+            </div>
         </Router>
       );
     }
