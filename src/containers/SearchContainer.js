@@ -41,6 +41,9 @@ class SearchContainer extends Component {
     .then(responseJSON => {
       this.updateStateImages(responseJSON.results)
     })
+    this.setState({
+      query: ''
+    })
   }
 
    chooseImage = (event) => {
