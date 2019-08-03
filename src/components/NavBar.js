@@ -27,12 +27,6 @@ const NavBar = () => {
       </NavLink>
 
       <NavLink style={link}
-        to="/create"
-      >
-        Create New Board
-      </NavLink>
-
-      <NavLink style={link}
         to="/index"
       >
         Board List
