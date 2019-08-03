@@ -1,5 +1,19 @@
 // actions
 const API_URL = 'http://localhost:3000/api/v1/boards'
+
+export function fetchBoards() {
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_BOARDS' });
+
+  return fetch(API_URL)
+  .then(response => {
+    return response.json()
+  })
+  .then(data => dispatch({ type: 'FETCH_BOARDS', payload: data.boards}))
+  .catch(err => console.log(err));
+  }
+}
+
 export const saveBoard = (board) => {
   return dispatch =>
   fetch(API_URL, {

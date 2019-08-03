@@ -11,33 +11,51 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
 
+    case 'LOADING_BOARDS': {
+      return {
+        ...state,
+        loading: true};
+    }
+
+    case 'FETCH_BOARDS': {
+      return {
+        ...state,
+        loading: false,
+        boards: action.payload};
+    }
+
     case 'ADD_IMAGE_TO_BOARD': {
-  // debugger
-      return { ...state, boardImages:
-        [...state.boardImages, action.newBoardImages]};
-    }
+      return {
+        ...state,
+        boardImages:
+        [
+          ...state.boardImages,
+          action.newBoardImages
+        ]};
+      }
 
-    case 'SAVE_BOARD': {
-      debugger
-      return { ...state, boards: [...state.boards, action.payload]};
-    }
+      case 'SAVE_BOARD': {
+        debugger
+        return {
+          ...state,
+          boards:
+          [
+            ...state.boards, 
+            action.payload
+          ]};
+      }
+
+      // case 'SHOW_BOARD': {
+      //
+      // }
+      //
+
+      // case 'CREATE_BOARD': {
+      //
+      // }
 
 
-    // case 'BOARD_INDEX': {
-    //
-    // }
-
-    // case 'SHOW_BOARD': {
-    //
-    // }
-    //
-
-    // case 'CREATE_BOARD': {
-    //
-    // }
-
-
-    default:
+      default:
       return state;
-  }
-};
+    }
+  };

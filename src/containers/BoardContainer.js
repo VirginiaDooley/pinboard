@@ -3,13 +3,16 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { saveBoard } from '../actions/boards'
 import BoardShow from '../components/BoardShow';
-import BoardsList from '../components/BoardsList'
 
 class BoardContainer extends Component {
 
   state = {
     title: "sample title"
   }
+
+  // componentDidMount() {
+  //   this.props.fetchBoards()
+  // }
 
   renderBoardImages = () => {
     const boardImages = this.props.boardImages;
