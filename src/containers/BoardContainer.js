@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Button, Form, FormGroup, Label, Input, Col, Row } from 'reactstrap';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { saveBoard } from '../actions/boards'
+import { saveBoard, fetchBoards } from '../actions/boards'
 import BoardShow from '../components/BoardShow';
 
 class BoardContainer extends Component {
@@ -54,27 +55,37 @@ class BoardContainer extends Component {
 
     render() {
       return (
-        <div className="title-form">
-          <input
-            type="text"
-            name="title"
-            value={this.state.title}
-            placeholder="Add your board title form here."
-            onChange={this.handleTitleChange}/>
-          <button onClick={this.handleSave}>Save</button>
-          {this.renderBoardImages()}
+        <div>
+          <Form>
+            <Col>
+              <Input
+                type="text"
+                name="title"
+                value={this.state.title}
+                placeholder="Add your board title form here."
+                onChange={this.handleTitleChange}/>
+
+              <Button onClick={this.handleSave}>Save Board</Button>
+            </Col>
+          </Form>
+
+          <div className="grid-item">
+            <div className="Pinboard">
+              {this.renderBoardImages()}
+            </div>
+        </div>
         </div>
       )
     }
-}
-
-// getting state from redux store
-const mapStateToProps = state => {
-  console.log(state)
-  return {
-    boardImages: state.manageBoards.boardImages,
-    boards: state.manageBoards.boards
   }
-}
 
-export default connect(mapStateToProps, {saveBoard}) (withRouter(BoardContainer));
+  // getting state from redux store
+  const mapStateToProps = state => {
+    console.log(state)
+    return {
+      boardImages: state.manageBoards.boardImages,
+      boards: state.manageBoards.boards
+    }
+  }
+
+  export default connect(mapStateToProps, {saveBoard, fetchBoards}) (withRouter(BoardContainer));
