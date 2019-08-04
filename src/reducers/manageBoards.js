@@ -11,17 +11,23 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
 
+    case 'SET_BOARDS': {
+      return action.boards;
+    }
+
     case 'LOADING_BOARDS': {
       return {
         ...state,
-        loading: true};
+        loading: true
+      };
     }
 
     case 'FETCH_BOARDS': {
       return {
         ...state,
         loading: false,
-        boards: action.payload};
+        boards: action.payload
+      };
     }
 
     case 'ADD_IMAGE_TO_BOARD': {
@@ -40,7 +46,7 @@ export default (state = initialState, action) => {
           ...state,
           boards:
           [
-            ...state.boards, 
+            ...state,
             action.payload
           ]};
       }

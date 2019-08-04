@@ -1,15 +1,20 @@
 // actions
 const API_URL = 'http://localhost:3000/api/v1/boards'
 
-export function fetchBoards() {
-  return (dispatch) => {
+export const setBoards = boards => {
+  return { type: 'SET_BOARDS', boards };
+};
+
+export const fetchBoards = () => {
+  return dispatch => {
     dispatch({ type: 'LOADING_BOARDS' });
 
   return fetch(API_URL)
   .then(response => {
     return response.json()
   })
-  .then(data => dispatch({ type: 'FETCH_BOARDS', payload: data.boards}))
+  .then(boards => {
+    dispatch(setBoards(boards))})
   .catch(err => console.log(err));
   }
 }
@@ -35,12 +40,6 @@ export const saveBoard = (board) => {
         alert("Board save failed, please try again!");
       })
     }
-
-    // #index
-    // export const boardList = () => ({
-    //
-    //
-    // })
 
     // #show
     // export const showBoard = boardId => ({
