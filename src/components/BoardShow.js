@@ -2,7 +2,7 @@ import React from 'react';
 
  const BoardShow = (props) => {
   return (
-    <img src={props.src} alt={props.alt}/>
+    <img id={props.id} src={props.src} alt={props.alt}/>
   )
 }
 
