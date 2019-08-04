@@ -12,7 +12,10 @@ export default (state = initialState, action) => {
   switch (action.type) {
 
     case 'SET_BOARDS': {
-      return action.boards;
+      return {
+        ...state,
+        boards: action.boards
+      }
     }
 
     case 'LOADING_BOARDS': {
