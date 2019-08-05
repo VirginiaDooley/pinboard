@@ -7,8 +7,8 @@ import NavBar from './components/NavBar';
 // SearchContainer is a parent to others but a child component of App
 import SearchContainer from './containers/SearchContainer'
 import BoardContainer from './containers/BoardContainer'
+import BoardsPage from './components/BoardsPage';
 import BoardShow from './components/BoardShow';
-import BoardsList from './components/BoardsList';
 
 class App extends React.Component {
 
@@ -24,8 +24,8 @@ class App extends React.Component {
           </div>
 
           <Route exact path="/show" component={BoardShow} />
-          <Route exact path="/index" render={boards =>
-              <BoardsList {...boards} boards={this.props.boards} />} />
+          <Route exact path="/boards" render={boards =>
+              <BoardsPage {...boards} boards={this.props.boards} />} />
 
             <div className="grid-container">
               <BoardContainer />

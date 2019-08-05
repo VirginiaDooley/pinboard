@@ -27,7 +27,7 @@ const NavBar = () => {
       </NavLink>
 
       <NavLink style={link}
-        to="/index"
+        to="/boards"
       >
         Board List
       </NavLink>
