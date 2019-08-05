@@ -6,6 +6,7 @@ export const setBoards = boards => {
 };
 
 export const fetchBoards = () => {
+  debugger
   return dispatch => {
     dispatch({ type: 'LOADING_BOARDS' });
 
@@ -19,6 +20,7 @@ export const fetchBoards = () => {
   }
 }
 
+// #create
 export const saveBoard = (board) => {
   return dispatch =>
   fetch(API_URL, {
@@ -31,15 +33,22 @@ export const saveBoard = (board) => {
   })
   .then(res =>
     res.json())
-    .then(board =>
-      {
-        return dispatch({type: 'SAVE_BOARD', payload: board});
-      })
-      .catch(error => {
-        console.log(error);
-        alert("Board save failed, please try again!");
-      })
+    .then(board => {
+      if (board.id) {
+        dispatch({type: 'SAVE_BOARD', payload: board});
+        // board.history.push(`${board.id}`);
+        // this.props.history.push('/index')
+        alert("Success!")
+      }
+    else {
+      const err = board.errors.join('\n\n')
+      alert(`${board.message}\n\n${err}`)
     }
+    }).catch(error => {
+      console.log(error);
+      alert("Board save failed, please try again!");
+  })
+}
 
     // #show
     // export const showBoard = boardId => ({

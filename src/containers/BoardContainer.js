@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input, Col, Row } from 'reactstrap';
+import { Button, Form, Input, Col} from 'reactstrap';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { saveBoard, fetchBoards } from '../actions/boards'
@@ -11,9 +11,9 @@ class BoardContainer extends Component {
     title: "sample title"
   }
 
-  // componentDidMount() {
-  //   this.props.fetchBoards()
-  // }
+  componentDidMount() {
+    this.props.fetchBoards()
+  }
 
   renderBoardImages = () => {
     const boardImages = this.props.boardImages;
@@ -28,6 +28,7 @@ class BoardContainer extends Component {
             />
         }))
       }
+
       return (
         <h5>Click images from your search results
           to add them to your board.</h5>
@@ -50,7 +51,8 @@ class BoardContainer extends Component {
         }
       }
       this.props.saveBoard(board)
-      this.props.history.push('/index')
+      // this.props.history.push('/index')
+      // this.props.history.push(`/boards/${board.id}`)
     }
 
     render() {

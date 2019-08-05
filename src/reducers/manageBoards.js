@@ -44,14 +44,7 @@ export default (state = initialState, action) => {
       }
 
       case 'SAVE_BOARD': {
-        debugger
-        return {
-          ...state,
-          boards:
-          [
-            ...state,
-            action.payload
-          ]};
+        return {...state, boards: action.payload};;
       }
 
       // case 'SHOW_BOARD': {
