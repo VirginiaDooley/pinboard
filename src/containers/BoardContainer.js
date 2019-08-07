@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Button, Form, Input, Col} from 'reactstrap';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { saveBoard, fetchBoards } from '../actions/boards'
-import BoardShow from '../components/BoardShow';
+import { saveBoard } from '../actions/boards';
+import BoardsList from '../components/BoardsList';
+import CreateBoard from '../components/CreateBoard';
 
 class BoardContainer extends Component {
 
@@ -11,17 +12,12 @@ class BoardContainer extends Component {
     title: "sample title"
   }
 
-  componentDidMount() {
-    this.props.fetchBoards()
-  }
-
   renderBoardImages = () => {
     const boardImages = this.props.boardImages;
     if (boardImages.length > 0) {
       return (
         boardImages.map((image, index) => {
-          return <BoardShow
-            id={image.id}
+          return <CreateBoard boardImages={boardImages}
             key={index}
             src={image.src}
             alt={image.alt}
@@ -35,47 +31,17 @@ class BoardContainer extends Component {
       )
     }
 
-    handleTitleChange = (event) => {
-      event.preventDefault()
-      this.setState({
-        [event.target.name]: event.target.value
-      })
-    }
-
-    handleSave = (event) => {
-      event.preventDefault();
-      const board = {
-        title: this.state.title,
-        image_attributes: {
-          images: this.props.boardImages.map(image => image.src)
-        }
-      }
-      this.props.saveBoard(board)
-      // this.props.history.push('/index')
-      // this.props.history.push(`/boards/${board.id}`)
-    }
 
     render() {
       return (
         <div>
-          <Form>
-            <Col>
-              <Input
-                type="text"
-                name="title"
-                value={this.state.title}
-                placeholder="Add your board title form here."
-                onChange={this.handleTitleChange}/>
-
-              <Button onClick={this.handleSave}>Save Board</Button>
-            </Col>
-          </Form>
 
           <div className="grid-item">
             <div className="Pinboard">
               {this.renderBoardImages()}
             </div>
         </div>
+
         </div>
       )
     }
@@ -90,4 +56,4 @@ class BoardContainer extends Component {
     }
   }
 
-  export default connect(mapStateToProps, {saveBoard, fetchBoards}) (withRouter(BoardContainer));
+  export default connect(mapStateToProps, {saveBoard}) (withRouter(BoardContainer));
