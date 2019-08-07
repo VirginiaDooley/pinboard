@@ -6,7 +6,6 @@ export const setBoards = boards => {
 };
 
 export const fetchBoards = () => {
-  debugger
   return dispatch => {
     dispatch({ type: 'LOADING_BOARDS' });
 
@@ -36,9 +35,8 @@ export const saveBoard = (board) => {
     .then(board => {
       if (board.id) {
         dispatch({type: 'SAVE_BOARD', payload: board});
-        // board.history.push(`${board.id}`);
-        // this.props.history.push('/index')
         alert("Success!")
+        // this.props.history.push(`/boards/${board.id}`)
       }
     else {
       const err = board.errors.join('\n\n')
@@ -49,40 +47,3 @@ export const saveBoard = (board) => {
       alert("Board save failed, please try again!");
   })
 }
-
-    // #show
-    // export const showBoard = boardId => ({
-    // return (dispatch) => {
-    //     dispatch({ type: 'LOADING_BOARD' });
-    //   return fetch(`${API_URL}/boards`)
-    //   .then(response => {
-    //     return response.json()
-    //   })
-    //   .then(data => dispatch({ type: 'SHOW_BOARD', payload: data.boards}))
-    //   .catch(err => console.log(err));
-    //   }
-    // })
-
-
-    // export const createBoard = (boards, routerHistory) => {
-    //   return dispatch => {
-    //     return fetch(`${API_URL}/boards`, {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //       },
-    //       body: JSON.stringify({ board })
-    //     })
-    //     .then(res => res.json())
-    //     .then(board => {
-    //       if (board.id) {
-    //           dispatch({ type: 'CREATE_BOARD', payload: board.id}));
-    //           routerHistory.push(`${board.id}`);
-    //       } else {
-    //         const err = board.errors.join('\n\n')
-    //         alert(`${board.message}\n\n${err}`)
-    //       }
-    //     }).catch(err => console.log(err));
-    //   };
-    // };
-    //
