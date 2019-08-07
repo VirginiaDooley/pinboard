@@ -64,9 +64,7 @@ class SearchContainer extends Component {
           </Form>
           <Row>
             <Col>
-              <div className="image">
                 < SearchResults searchResults={this.state.searchResults} chooseImage={this.chooseImage} />
-              </div>
             </Col>
         </Row>
         </div>
