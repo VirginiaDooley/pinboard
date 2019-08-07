@@ -44,17 +44,8 @@ export default (state = initialState, action) => {
       }
 
       case 'SAVE_BOARD': {
-        return {...state, boards: action.payload};;
+        return {...state, boards: action.payload};
       }
-
-      // case 'SHOW_BOARD': {
-      //
-      // }
-      //
-
-      // case 'CREATE_BOARD': {
-      //
-      // }
 
 
       default:
