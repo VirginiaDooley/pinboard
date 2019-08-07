@@ -1,5 +1,4 @@
 import React from 'react';
-import { Row, Col } from 'reactstrap';
 
 const SearchResults = (props) => {
 
@@ -13,11 +12,9 @@ const SearchResults = (props) => {
    />)
 
    return (
-       <Row>
-         <Col>
-           {renderImages()}
-         </Col>
-       </Row>
+     <div className="SearchResults">
+        {renderImages()}
+    </div>
   )
 }
 
