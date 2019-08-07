@@ -56,6 +56,20 @@ button {
   position:relative;
 }
 
+.SearchResults {
+  align-items: left;
+  border-style: solid;
+  border-color: green;
+  margin-left: 10px;
+  display: grid;
+  justify-content: space-evenly;
+  height: 500px;
+  width: 500px;
+  position:relative;
+}
+
+
+
 .grid-container {
   display: grid;
   padding: 10px;
@@ -65,11 +79,11 @@ button {
 
 .grid-item {
   padding: 10px;
-  text-align: center;
+  text-align: left;
   position:relative;
 }
 
-/* Create three equal columns that floats next to each other */
+/* Create three equal columns that floats next to each other */ */
 .column {
   float: left;
   width: 33.33%;
@@ -84,9 +98,8 @@ button {
   clear: both;
 }
 
-/* Style the footer */
-.footer {
-  background-color: #f1f1f1;
-  padding: 10px;
-  text-align: center;
+img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
 }
