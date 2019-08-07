@@ -1,21 +1,27 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import React, {Component} from 'react'
 
-const BoardsList = ({boards}) => {
-  const renderBoards = boards.map((board, index) =>
-    <li>
-      <Link key={index} title={board.title} to={`/boards/${board.id}`}>{board.title}</Link>
-    </li>
+class BoardsList extends Component {
+  render () {
+    const {boards} = this.props;
+    const renderBoards = Object.values(boards).map((board, index) => {
+      return (
+      <li key={index}>
+        <Link to={`/boards/${board.id}`}>{board.title}</Link>
+      </li>
+      )}
+  )
 
-)
+    return (
+      <div>
+        <h1>Select a board to view images</h1>
+        <ol>
+          {renderBoards}
+        </ol>
+      </div>
+    );
 
-  return (
-    <div>
-      <ol>
-        {renderBoards}
-      </ol>
-    </div>
-  );
-};
+  }
+}
 
 export default BoardsList;
