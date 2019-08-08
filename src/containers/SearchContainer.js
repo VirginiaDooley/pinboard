@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Input, Col, Row} from 'reactstrap';
+import { Button, Form, Input, Col, Row, Label} from 'reactstrap';
 import { connect } from 'react-redux';
 import { addImageToBoard } from '../actions/images'
 import SearchResults from '../components/SearchResults'
@@ -57,10 +57,11 @@ class SearchContainer extends Component {
       return (
         <div>
           <Form onSubmit={this.handleSubmit}>
-            <Col>
-              <Input type="text" name="query" onChange={this.handleChange} value={this.state.query}/>
-              <Button type="submit">Search</Button>
-            </Col>
+            <Label for="searchForm">Search Unsplash to find your inspiration</Label>
+              <Col>
+                <Input type="text" name="query" onChange={this.handleChange} value={this.state.query}/>
+                <Button type="submit">Search</Button>
+              </Col>
           </Form>
             <div>
                 < SearchResults searchResults={this.state.searchResults} chooseImage={this.chooseImage} />
