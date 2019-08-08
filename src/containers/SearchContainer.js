@@ -57,7 +57,7 @@ class SearchContainer extends Component {
       return (
         <div>
           <Form onSubmit={this.handleSubmit}>
-            <Label for="searchForm">Search Unsplash to find your inspiration</Label>
+            <Label for="searchForm">Search Unsplash to find your inspiration.</Label>
               <Col>
                 <Input type="text" name="query" onChange={this.handleChange} value={this.state.query}/>
                 <Button type="submit">Search</Button>
