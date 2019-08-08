@@ -8,7 +8,9 @@ App
   -ShowBoard
 
   Issues:
-  
+
+  selectImages and form save is rendering twice
+
   redirect to show board
 
   board save and boardImages appear twice (second inside pinboard is correct)
@@ -20,6 +22,22 @@ App
   what exactly is set boards action doing?
 
 
+  fetch('http://localhost:3000/api/v1/boards', {
+      method: 'POST',
+      body: JSON.stringify(board),
+      headers: { 
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(newBoard => {debugger})
+    .catch(error => {
+        console.log(error);
+        alert("Board save failed, please try again!");
+    })
+  this.props.history.push(`/boards/${board.id}`)
+}
 
 
 

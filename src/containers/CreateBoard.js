@@ -3,12 +3,27 @@ import { connect } from 'react-redux';
 import { Button, Form, Input } from 'reactstrap';
 import { withRouter } from 'react-router';
 import { saveBoard } from '../actions/boards';
+import BoardsList from '../components/BoardsList';
 
 class CreateBoard extends Component {
 
   state = {
     title: "sample title"
   }
+
+  renderBoardImages = () => {
+    const boardImages = this.props.boardImages;
+    if (boardImages.length > 0) {
+      return (
+        boardImages.map((image, index) => {
+          return <img key={index} src={image.src} alt={image.alt}/>
+        }))
+      }
+      return (
+        <h5>Click images from your search results
+          to add them to your board.</h5>
+      )
+    }
 
   handleTitleChange = (event) => {
     event.preventDefault()
@@ -19,6 +34,7 @@ class CreateBoard extends Component {
 
   handleSave = (event) => {
     event.preventDefault();
+
     const board = {
       title: this.state.title,
       image_attributes: {
@@ -26,15 +42,13 @@ class CreateBoard extends Component {
       }
     }
     this.props.saveBoard(board)
-    // redirect to board show route
-    // this.props.history.push('/index')
-    // this.props.history.push(`/boards/${board.id}`)
+    this.props.history.push(`/boards`)
   }
-
 
   render() {
     return (
-        <div>
+      <div>
+
           <Form>
             <Input
               type="text"
@@ -46,13 +60,11 @@ class CreateBoard extends Component {
           </Form>
 
             <div>
-              {this.props.boardImages.map((image, index) => <img
-                key={index}
-                src={image.src}
-                alt={image.description}
-                />)}
+              {this.renderBoardImages()}
             </div>
+
         </div>
+
       )
     }
 }
@@ -60,7 +72,8 @@ class CreateBoard extends Component {
 const mapStateToProps = state => {
   return {
     boardImages: state.manageBoards.boardImages,
-    boards: state.manageBoards.boards
+    boards: state.manageBoards.boards,
+    newBoard: state.manageBoards.newlyCreatedBoard
   }
 }
 
