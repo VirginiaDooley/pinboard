@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button, Form, Input, Col} from 'reactstrap';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { saveBoard } from '../actions/boards';
@@ -31,23 +30,15 @@ class BoardContainer extends Component {
       )
     }
 
-
     render() {
       return (
         <div>
-
-          <div className="grid-item">
-            <div className="Pinboard">
-              {this.renderBoardImages()}
-            </div>
-        </div>
-
+          {this.renderBoardImages()}
         </div>
       )
     }
   }
 
-  // getting state from redux store
   const mapStateToProps = state => {
     console.log(state)
     return {

@@ -12,7 +12,7 @@ const SearchResults = (props) => {
    />)
 
    return (
-     <div className="SearchResults">
+     <div>
         {renderImages()}
     </div>
   )

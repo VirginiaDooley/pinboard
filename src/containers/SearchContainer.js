@@ -62,11 +62,9 @@ class SearchContainer extends Component {
               <Button type="submit">Search</Button>
             </Col>
           </Form>
-          <Row>
-            <Col>
+            <div>
                 < SearchResults searchResults={this.state.searchResults} chooseImage={this.chooseImage} />
-            </Col>
-        </Row>
+            </div>
         </div>
       )
     }

@@ -10,9 +10,9 @@ class BoardShow extends Component {
     })
    console.log(board)
    return (
-    <div>
+    <div className="grid-item">
       <h5>Board Title: {board.title}</h5>
-      // <img>{board.src}</img>
+      <img alt={board.description} src={board.src}>{board.src}</img>
     </div>
    )
  }

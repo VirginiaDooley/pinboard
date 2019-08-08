@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import { connect } from 'react-redux'
+import { Col, Row, Container } from 'reactstrap';
 import './App.css';
 import NavBar from './components/NavBar';
 import SearchContainer from './containers/SearchContainer'
-import CreateBoard from './components/CreateBoard'
 import BoardContainer from './containers/BoardContainer'
 import BoardsList from './components/BoardsList';
 import BoardShow from './components/BoardShow';
@@ -25,38 +25,30 @@ class App extends React.Component {
             <NavBar />
           </div>
 
-          <div className="column">
-            <SearchContainer />
+          <div className="grid-container">
+            <div className="grid-item">
+              <SearchContainer />
+            </div>
+
+            <div className="grid-item">
+              <BoardContainer />
+            </div>
           </div>
 
-          <Route exact path="/boards"
+          <div>
+            <Route exact path="/boards"
             render={routerProps =>
               <BoardsList
                 boards={this.props.boards} {...routerProps} />}
                 />
+          </div>
 
-            <Route exact path='/boards/:boardId'
+              <Route exact path='/boards/:boardId'
               render={routerProps =>
                 <BoardShow
                   boards={this.props.boards} {...routerProps}/>}
                 />
-
-            <div className="grid-container">
-
-                <div className="grid-item">
-                  <div className="column">
-                    <CreateBoard />
-                  </div>
-                </div>
-
-                <div className="grid-item">
-                  <div className="column">
-                    <BoardContainer />
-                  </div>
-                </div>
-
-            </div>
-          </div>
+        </div>
       </Router>
     );
   }

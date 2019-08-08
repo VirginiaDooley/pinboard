@@ -7,15 +7,13 @@ App
   -BoardList
   -ShowBoard
 
+  Issues:
+  
   redirect to show board
 
-  when i click link from index, board is empty
+  board save and boardImages appear twice (second inside pinboard is correct)
 
-  boardImages can be local; would this solve mapping issue on component did mount? if so, move boardImages state to board container and don't include on initial state?
-
-  create functional component for board page and render board list and board show there?
-
-  what else for show?
+  How can I get access to src images for show
 
   what else for project specs?
 

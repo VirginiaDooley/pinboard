@@ -13,11 +13,11 @@ class BoardsList extends Component {
   )
 
     return (
-      <div>
-        <h1>Select a board to view images</h1>
-        <ol>
-          {renderBoards}
-        </ol>
+      <div className="grid-item">
+        <h3>Select a board to view images</h3>
+          <ol>
+            {renderBoards}
+          </ol>
       </div>
     );
 
