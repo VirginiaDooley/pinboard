@@ -21,7 +21,7 @@ export const fetchBoards = () => {
 
 // #create
 export const saveBoard = (board) => {
-  return dispatch =>
+  return dispatch => {
   fetch(API_URL, {
     method: 'POST',
     body: JSON.stringify(board),
@@ -30,20 +30,36 @@ export const saveBoard = (board) => {
       'Content-Type': 'application/json'
     }
   })
-  .then(res =>
-    res.json())
-    .then(board => {
-      if (board.id) {
-        dispatch({type: 'SAVE_BOARD', payload: board});
-        alert("Success!")
-        // this.props.history.push(`/boards/${board.id}`)
-      }
-    else {
-      const err = board.errors.join('\n\n')
-      alert(`${board.message}\n\n${err}`)
-    }
-    }).catch(error => {
+  .then(res => res.json())
+  .then(newBoard => {
+    dispatch({type: 'SAVE_BOARD', payload: newBoard});
+      alert("Success!");
+    })
+  .catch(error => {
       console.log(error);
       alert("Board save failed, please try again!");
   })
 }
+}
+
+// export const saveBoard = (board) => {
+//   fetch('API_URL', {
+//   method: 'POST',
+//   headers: { 
+//         'Accept': 'application/json',
+//         'Content-Type': 'application/json'
+//       },
+//   body: JSON.stringify(board)
+// })
+// .then(response => response.json())
+// .catch(error => console.error('Error:', error))
+// .then(response => console.log('Success:', JSON.stringify(response)));
+// }
+
+
+
+//   }
+// else {
+//   const err = board.errors.join('\n\n')
+//   alert(`${board.message}\n\n${err}`)
+// }
