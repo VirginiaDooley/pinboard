@@ -26,6 +26,7 @@ class App extends React.Component {
           </div>
 
           <div className="grid-container">
+
             <div className="grid-item">
               <SearchContainer />
             </div>
@@ -33,21 +34,22 @@ class App extends React.Component {
             <div className="grid-item">
               <BoardContainer />
             </div>
-          </div>
+          
+        </div>
 
-          <div>
-            <Route exact path="/boards"
+            <Route exact path='/boards'
             render={routerProps =>
               <BoardsList
                 boards={this.props.boards} {...routerProps} />}
                 />
-          </div>
+
 
               <Route exact path='/boards/:boardId'
               render={routerProps =>
                 <BoardShow
                   boards={this.props.boards} {...routerProps}/>}
                 />
+
         </div>
       </Router>
     );
