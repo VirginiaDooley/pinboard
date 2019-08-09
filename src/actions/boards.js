@@ -22,44 +22,22 @@ export const fetchBoards = () => {
 // #create
 export const saveBoard = (board) => {
   return dispatch => {
-  fetch(API_URL, {
-    method: 'POST',
-    body: JSON.stringify(board),
-    headers: { 
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(res => res.json())
-  .then(newBoard => {
-    dispatch({type: 'SAVE_BOARD', payload: newBoard});
-      alert("Success!");
+    fetch(API_URL, {
+      method: 'POST',
+      body: JSON.stringify(board),
+      headers: { 
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
     })
-  .catch(error => {
-      console.log(error);
-      alert("Board save failed, please try again!");
-  })
+    .then(res => res.json())
+    .then(newBoard => {
+      dispatch({type: 'SAVE_BOARD', payload: newBoard});
+        alert("Success!");
+      })
+    .catch(error => {
+        console.log(error);
+        alert("Board save failed, please try again!");
+    })
+  }
 }
-}
-
-// export const saveBoard = (board) => {
-//   fetch('API_URL', {
-//   method: 'POST',
-//   headers: { 
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json'
-//       },
-//   body: JSON.stringify(board)
-// })
-// .then(response => response.json())
-// .catch(error => console.error('Error:', error))
-// .then(response => console.log('Success:', JSON.stringify(response)));
-// }
-
-
-
-//   }
-// else {
-//   const err = board.errors.join('\n\n')
-//   alert(`${board.message}\n\n${err}`)
-// }
