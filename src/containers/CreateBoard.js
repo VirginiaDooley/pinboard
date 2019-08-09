@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Button, Form, Input } from 'reactstrap';
 import { withRouter } from 'react-router';
 import { saveBoard } from '../actions/boards';
-// import BoardsList from '../components/BoardsList';
 
 class CreateBoard extends Component {
 
@@ -36,17 +35,16 @@ class CreateBoard extends Component {
 
     const board = {
       title: this.state.title,
-      images_attributes: this.props.boardImages.map(image => {
-        return {url: image.src}
-      })
+        images_attributes: this.props.boardImages.map(image => {
+          return {url: image.src}
+        })
       }
-    this.props.saveBoard(board)
+    this.props.saveBoard(board);
   }
 
   render() {
     return (
       <div>
-
           <Form>
             <Input
               type="text"
@@ -59,10 +57,7 @@ class CreateBoard extends Component {
           <div>
             {this.renderBoardImages()}
           </div>
-
-
         </div>
-
       )
     }
 }
