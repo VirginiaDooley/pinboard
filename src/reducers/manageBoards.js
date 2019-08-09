@@ -7,7 +7,6 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-  // console.log(action)
 
   switch (action.type) {
 
@@ -43,11 +42,11 @@ export default (state = initialState, action) => {
         ]};
       }
 
-      case 'SAVE_BOARD': {
-        return {...state, newlyCreatedBoard: action.payload, boards: [...state.boards, action.payload], boardImages:
-        []};
+    case 'SAVE_BOARD': {
+      return {...state, newlyCreatedBoard: action.payload,
+        boards: [...state.boards, action.payload],
+        boardImages: []};
       }
-
 
       default:
       return state;
