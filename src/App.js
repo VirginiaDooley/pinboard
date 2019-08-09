@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { connect } from 'react-redux'
-import { Col, Row, Container } from 'reactstrap';
 import './App.css';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
@@ -26,6 +25,23 @@ class App extends React.Component {
             <NavBar />
           </div>
 
+          <Switch>
+            <Route exact path='/' component={Home} />
+
+            <Route exact path='/boards'
+              render={routerProps =>
+                <BoardsList
+                  boards={this.props.boards} {...routerProps} />}
+            />
+
+            <Route exact path='/boards/:boardId'
+              render={routerProps =>
+                <BoardShow
+                  boards={this.props.boards} {...routerProps}/>}
+            />
+
+          </Switch>
+
           <div className="grid-container">
 
             <div className="grid-item">
@@ -37,23 +53,6 @@ class App extends React.Component {
             </div>
 
         </div>
-          <Switch>
-
-              <Route exact path='/' component={Home} />
-
-              <Route exact path='/boards'
-              render={routerProps =>
-                <BoardsList
-                  boards={this.props.boards} {...routerProps} />}
-                  />
-
-                <Route exact path='/boards/:boardId'
-                render={routerProps =>
-                  <BoardShow
-                    boards={this.props.boards} {...routerProps}/>}
-                  />
-
-            </Switch>
 
         </div>
       </Router>
