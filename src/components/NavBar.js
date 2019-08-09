@@ -12,7 +12,7 @@ const link = {
 const nav = {
   padding: '10px',
   margin: '10px 10px 10px 10px',
-  background: 'grey',
+  background: 'pink',
 }
 
 const NavBar = () => {
