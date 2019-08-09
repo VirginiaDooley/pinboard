@@ -2,7 +2,7 @@
 
 Visualise your goals with an inspiration board. Search and choose images to "pin" and save them to a board with a title.
 
-*LIVE SITE -> (coming soon)
+*LIVE SITE -> (coming soon: https://pinboard-goals.herokuapp.com/)
 
 *VIDEO DEMO -> (coming soon)
 
