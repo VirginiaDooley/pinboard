@@ -36,8 +36,7 @@ class App extends React.Component {
 
             <Route exact path='/boards/:boardId'
               render={routerProps =>
-                <BoardShow
-                  boards={this.props.boards} {...routerProps}/>}
+                <BoardShow {...routerProps}/>}
             />
 
           </Switch>
