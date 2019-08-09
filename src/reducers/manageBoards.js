@@ -44,7 +44,7 @@ export default (state = initialState, action) => {
       }
 
       case 'SAVE_BOARD': {
-        return {...state, newlyCreatedBoard: action.payload};
+        return {...state, newlyCreatedBoard: action.payload, boards: [...state.boards, action.payload]};
       }
 
 
