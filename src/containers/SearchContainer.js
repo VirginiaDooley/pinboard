@@ -49,7 +49,7 @@ class SearchContainer extends Component {
    chooseImage = (event) => {
      let image = event.target
      console.log(image)
-     this.props.addImageToBoard(image)
+     this.props.addImageToBoard(image);
    }
 
     render () {
