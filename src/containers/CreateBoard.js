@@ -42,7 +42,6 @@ class CreateBoard extends Component {
       }
     }
     this.props.saveBoard(board)
-    this.props.history.push(`/boards`)
   }
 
   render() {

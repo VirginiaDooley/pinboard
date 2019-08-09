@@ -9,17 +9,16 @@ App
 
   Issues:
 
-  selectImages and form save is rendering twice
-
   redirect to show board
-
-  board save and boardImages appear twice (second inside pinboard is correct)
 
   How can I get access to src images for show
 
+    add serializers
+    map images and renderimages()
+    
   what else for project specs?
 
-  what exactly is set boards action doing?
+  change all components to functional, remember to pass in props
 
 
   fetch('http://localhost:3000/api/v1/boards', {
