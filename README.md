@@ -11,7 +11,7 @@ To get start and/or collaborate:
 
  2) Fork and clone this repo, navigate to the project directory then
 
- 3) to bundle, run: ```npm install```
+ 3) To bundle, run: ```npm install```
 
  4) To run the app in the development mode: ```npm start```
 
