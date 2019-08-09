@@ -3,23 +3,23 @@ App
 -NavBar
  -SearchContainer
   -SearchResults
- -BoardContainer
+ -CreateBoard
   -BoardList
   -ShowBoard
 
   Issues:
 
-  redirect to show board
+    can't access board show without going to index link first. Should I add lifecycle method?
 
-  How can I get access to src images for show
+    as time allows, figure out board show redirect after save
 
-    add serializers
-    map images and renderimages()
-    
+    just show boardslist component in that route 
+
   what else for project specs?
-
-  change all components to functional, remember to pass in props
-
+    README
+    blog and video
+    deploy to heroku, as time allows
+<!--
 
   fetch('http://localhost:3000/api/v1/boards', {
       method: 'POST',
@@ -37,7 +37,7 @@ App
     })
   this.props.history.push(`/boards/${board.id}`)
 }
-
+ -->
 
 
 
@@ -66,16 +66,7 @@ deploy to heroku
 
 change db to postgres sql in production
 
-refer study group repo for controller actions to get json data
-
-Join table
-has_and_belongs_to_many*
-
-*Create controller actions to match routes*
-
 *Use Thunk w Rails API in the Redux action see for example https://github.com/NickisKnowledge/Dinner_n_10_React-Redux_Project/blob/master/client/src/reducers/dinnersReducer.js*
-
-Refer back here when you're ready to build out the controller actions https://instruction.learn.co/student/video_lectures#/?query=react-redux
 
 HEROKU
 
@@ -88,4 +79,3 @@ update puma in back end with new heroku url
 
 
 **CSS**
-responsive components

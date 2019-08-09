@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Input, Col, Row, Label} from 'reactstrap';
+import { Button, Form, Input, Col, Label} from 'reactstrap';
 import { connect } from 'react-redux';
 import { addImageToBoard } from '../actions/images'
 import SearchResults from '../components/SearchResults'
