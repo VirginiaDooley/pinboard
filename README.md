@@ -1,4 +1,5 @@
-**Pinboard**
+***Pinboard***
+
 Visualise your goals with an inspiration board. Search and choose images to "pin" and save them to a board with a title.
 
 *LIVE SITE -> (coming soon)
