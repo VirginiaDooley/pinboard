@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Button, Form, Input } from 'reactstrap';
 import { withRouter } from 'react-router';
 import { saveBoard } from '../actions/boards';
-import BoardsList from '../components/BoardsList';
+// import BoardsList from '../components/BoardsList';
 
 class CreateBoard extends Component {
 
@@ -20,8 +20,7 @@ class CreateBoard extends Component {
         }))
       }
       return (
-        <h5>Click images from your search results
-          to add them to your board.</h5>
+        <p>Click images to add them here and save a new board. </p>
       )
     }
 
@@ -37,10 +36,10 @@ class CreateBoard extends Component {
 
     const board = {
       title: this.state.title,
-      image_attributes: {
-        images: this.props.boardImages.map(image => image.src),
+      images_attributes: this.props.boardImages.map(image => {
+        return {url: image.src}
+      })
       }
-    }
     this.props.saveBoard(board)
   }
 
@@ -57,10 +56,10 @@ class CreateBoard extends Component {
               onChange={this.handleTitleChange}/>
             <Button onClick={this.handleSave}>Save Board</Button>
           </Form>
+          <div>
+            {this.renderBoardImages()}
+          </div>
 
-            <div>
-              {this.renderBoardImages()}
-            </div>
 
         </div>
 
