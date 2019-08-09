@@ -60,4 +60,6 @@ img {
   height: auto;
   padding: 10px;
   align: center;
+
+  border: 1px solid #ddd;
 }
