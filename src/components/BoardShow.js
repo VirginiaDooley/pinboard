@@ -1,31 +1,44 @@
-import React from 'react'
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import {fetchBoards} from '../actions/boards'
 
-const BoardShow = ({boards, match}) => {
+class BoardShow extends Component {
 
-  const board = boards.find(board => {
-    if (board.id === parseInt(match.params.boardId)) {
-      return board
-     }
-     // add error message?
-   })
-  console.log(board)
+  render () {
+    const {match, boards} = this.props;
 
-  const renderImages = () => board.images.map(image =>
-      <img
-       key={image.id}
-       src={image.url}
-       alt={image.description}
-     />
-  )
+    if (boards.length == 0) {
+      this.props.fetchBoards()
+    }
 
-  return (
+    const board = boards.find(board => {
 
-   <div className="grid-item">
-     <h3>Board Title: {board.title}</h3>
-     {renderImages()}
-   </div>
+      if (board.id === parseInt(match.params.boardId)) {
+        return board
+       }
+     })
 
-  )
+    const renderImages = () => board.images.map(image =>
+        <img
+         key={image.id}
+         src={image.url}
+         alt={image.description}
+       />
+   )
+
+    return (
+     <div className="grid-item">
+       <h3>Board Title: {board.title}</h3>
+        {renderImages()}
+     </div>
+    )
+  }
 }
 
-export default BoardShow;
+const mapStateToProps = state => {
+  return {
+    boards: state.manageBoards.boards
+  }
+}
+
+export default connect(mapStateToProps, {fetchBoards})(BoardShow);
