@@ -13,7 +13,7 @@ const BoardsList = ({boards}) => {
   return (
     <div className="grid-container">
       <div className="grid-item">
-        <h3>Select a board</h3>
+        <h3>Select a board:</h3>
           <ol>
             {renderBoards}
           </ol>
