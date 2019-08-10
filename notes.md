@@ -13,10 +13,12 @@ App
 
     as time allows, figure out board show redirect after save
 
-    just show boardslist component in that route 
+    just show boardslist component in that route
+
+    diff url for production and DEVELOPMENT?
 
   what else for project specs?
-    README
+    finish README
     blog and video
     deploy to heroku, as time allows
 <!--

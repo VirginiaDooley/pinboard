@@ -56,10 +56,12 @@ class SearchContainer extends Component {
       console.log(this.state)
       return (
         <div>
+
           <Form onSubmit={this.handleSubmit}>
+            <i class="fa fa-search"></i>
             <Label for="searchForm">Search Unsplash to find your inspiration.</Label>
               <Col>
-                <Input type="text" name="query" onChange={this.handleChange} value={this.state.query}/>
+                <Input type="text" name="query" onChange={this.handleChange} value={this.state.query} />
                 <Button type="submit">Search</Button>
               </Col>
           </Form>
