@@ -7,7 +7,7 @@ class BoardShow extends Component {
   render () {
     const {match, boards} = this.props;
 
-    if (boards.length == 0) {
+    if (boards.length === 0) {
       this.props.fetchBoards()
     }
 
