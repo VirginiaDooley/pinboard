@@ -17,13 +17,7 @@ const store = createStore(rootReducer,
   )
 );
 
-// By including the Provider,
-// we'll be able to access our Redux store
-// and/or dispatch actions from any component we want,
-// regardless of where it is on the component tree.
-
 ReactDOM.render(
-  // pass store in as a prop
   <Provider store={store}>
     <App />
   </Provider>,
