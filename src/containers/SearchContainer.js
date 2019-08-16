@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Button, Form, Input, Col, Label} from 'reactstrap';
-import { connect } from 'react-redux';
-import { addImageToBoard } from '../actions/images'
 import SearchResults from '../components/SearchResults'
+import CreateBoard from '../containers/CreateBoard'
 
 class SearchContainer extends Component {
 
   state = {
     query: "",
     searchResults: [],
+    boardImages: []
   }
 
   handleChange = event => {
@@ -17,7 +17,7 @@ class SearchContainer extends Component {
     })
   }
 
-  updateStateImages = (images) => {
+  updateStateImages = images => {
     this.setState({
       searchResults: images
     })
@@ -46,36 +46,36 @@ class SearchContainer extends Component {
     })
   }
 
-   chooseImage = (event) => {
-     let image = event.target
-     console.log(image)
-     this.props.addImageToBoard(image);
-   }
+  chooseImage = event => {
+    console.log(this)
+    let image = event.target;
+    this.setState(previousState => ({
+      boardImages: [...previousState.boardImages, image]
+    }))
+  }
 
     render () {
       console.log(this.state)
       return (
         <div>
+          <div className="grid-item">
+            <Form onSubmit={this.handleSubmit}>
+              <Label for="searchForm">Search Unsplash to find your inspiration.</Label>
+                <Col>
+                  <Input type="text" name="query" onChange={this.handleChange} value={this.state.query} />
+                  <Button type="submit">Search</Button>
+                </Col>
+            </Form>
+            <SearchResults searchResults={this.state.searchResults} chooseImage={this.chooseImage}/>
+          </div>
 
-          <Form onSubmit={this.handleSubmit}>
-            <i class="fa fa-search"></i>
-            <Label for="searchForm">Search Unsplash to find your inspiration.</Label>
-              <Col>
-                <Input type="text" name="query" onChange={this.handleChange} value={this.state.query} />
-                <Button type="submit">Search</Button>
-              </Col>
-          </Form>
-            <div>
-                < SearchResults searchResults={this.state.searchResults} chooseImage={this.chooseImage} />
-            </div>
-        </div>
+
+            <CreateBoard boardImages={this.state.boardImages}/>
+        
+      </div>
+
       )
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    addImageToBoard: newBoardImage => { dispatch(addImageToBoard(newBoardImage))
-  }
-})
-
-export default connect(null, mapDispatchToProps)(SearchContainer)
+export default SearchContainer;

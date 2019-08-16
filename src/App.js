@@ -5,13 +5,12 @@ import './App.css';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
 import SearchContainer from './containers/SearchContainer'
-import CreateBoard from './containers/CreateBoard'
 import BoardsList from './components/BoardsList';
 import BoardShow from './components/BoardShow';
 import { fetchBoards } from './actions/boards';
 
 class App extends React.Component {
-
+// lifecycle method + fetch method to get boards from rails api
   componentDidMount() {
     this.props.fetchBoards()
   }
@@ -27,28 +26,21 @@ class App extends React.Component {
 
           <Switch>
             <Route exact path='/' component={Home} />
-
             <Route exact path='/boards'
               render={routerProps =>
                 <BoardsList
                   boards={this.props.boards} {...routerProps} />}
             />
-
             <Route exact path='/boards/:boardId'
               render={routerProps =>
                 <BoardShow {...routerProps}/>}
             />
-
           </Switch>
 
           <div className="grid-container">
 
-            <div className="grid-item">
+            <div>
               <SearchContainer />
-            </div>
-
-            <div className="grid-item">
-              <CreateBoard />
             </div>
 
         </div>

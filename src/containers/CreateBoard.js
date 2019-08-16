@@ -13,15 +13,12 @@ class CreateBoard extends Component {
   renderBoardImages = () => {
     const boardImages = this.props.boardImages;
     if (boardImages.length > 0) {
-      return (
-        boardImages.map((image, index) => {
-          return <img key={index} src={image.src} alt={image.alt}/>
-        }))
-      }
-      return (
-        <p>Click images to add them here and save a new board. </p>
-      )
+      return boardImages.map((image, index) => {
+        return <img key={index} src={image.src} alt={image.alt} />
+      })
     }
+    return <p>Click images to add them here and save a new board.</p>;
+  }
 
   handleTitleChange = (event) => {
     event.preventDefault()
@@ -43,8 +40,10 @@ class CreateBoard extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
+        <div className="grid-item">
           <Form>
             <Input
               type="text"
@@ -54,17 +53,15 @@ class CreateBoard extends Component {
               onChange={this.handleTitleChange}/>
             <Button onClick={this.handleSave}>Save Board</Button>
           </Form>
-          <div>
-            {this.renderBoardImages()}
+            <p>{this.renderBoardImages()}</p>
           </div>
-        </div>
+      </div>
       )
     }
 }
 
 const mapStateToProps = state => {
   return {
-    boardImages: state.manageBoards.boardImages,
     boards: state.manageBoards.boards,
     newBoard: state.manageBoards.newlyCreatedBoard
   }

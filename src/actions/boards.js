@@ -5,16 +5,22 @@ export const setBoards = boards => {
   return { type: 'SET_BOARDS', boards };
 };
 
+// a, b, h, c, i, d, g, e
 export const fetchBoards = () => {
+  console.log('a')
   return dispatch => {
+    console.log('b')
     dispatch({ type: 'LOADING_BOARDS' });
 
   return fetch(API_URL)
   .then(response => {
+    console.log('c')
     return response.json()
   })
   .then(boards => {
-    dispatch(setBoards(boards))})
+    console.log('d')
+    dispatch({type: 'SET_BOARDS', payload: boards})
+  })
   .catch(err => console.log(err));
   }
 }

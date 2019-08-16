@@ -12,10 +12,10 @@ class BoardShow extends Component {
     }
 
     const board = boards.find(board => {
-
       if (board.id === parseInt(match.params.boardId)) {
         return board
        }
+       return ("This board does not exist")
      })
 
     const renderImages = () => board.images.map(image =>
