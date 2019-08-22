@@ -40,7 +40,6 @@ class CreateBoard extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <div className="grid-item">
@@ -53,7 +52,7 @@ class CreateBoard extends Component {
               onChange={this.handleTitleChange}/>
             <Button onClick={this.handleSave}>Save Board</Button>
           </Form>
-            <p>{this.renderBoardImages()}</p>
+          <div className="grid-item">{this.renderBoardImages()}</div>
           </div>
       </div>
       )
