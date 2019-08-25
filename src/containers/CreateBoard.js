@@ -37,24 +37,33 @@ class CreateBoard extends Component {
         })
       }
     this.props.saveBoard(board);
+    
+    this.props.history.push('/boards')
+
+    // set searchResults to empty array
+    // this.setState({
+    //   searchResults: [],
+    //   boardImages: []
+    // })
+
   }
 
   render() {
     return (
-      <div>
-        <div className="grid-item">
-          <Form>
-            <Input
-              type="text"
-              name="title"
-              value={this.state.title}
-              placeholder="Add your board title here."
-              onChange={this.handleTitleChange}/>
-            <Button onClick={this.handleSave}>Save Board</Button>
-          </Form>
-          <div className="grid-item">{this.renderBoardImages()}</div>
+      <div className="grid-item">
+        <Form>
+          <Input
+            type="text"
+            name="title"
+            value={this.state.title}
+            placeholder="Add your board title here."
+            onChange={this.handleTitleChange}/>
+          <Button onClick={this.handleSave}>Save Board</Button>
+        </Form>
+          <div className="grid-item">
+            {this.renderBoardImages()}
           </div>
-      </div>
+        </div>
       )
     }
 }
@@ -65,5 +74,11 @@ const mapStateToProps = state => {
     newBoard: state.manageBoards.newlyCreatedBoard
   }
 }
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     delete: todoText => dispatch({type: 'DELETE_TODO', payload: todoText })
+//   }
+// }
 
 export default connect(mapStateToProps, {saveBoard}) (withRouter(CreateBoard));

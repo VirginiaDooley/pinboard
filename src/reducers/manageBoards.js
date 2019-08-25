@@ -8,10 +8,8 @@ const initialState = {
 export default (state = initialState, action) => {
 
   switch (action.type) {
-
     case 'SET_BOARDS': {
       console.log('g')
-      // debugger
       return {
         ...state,
         boards: action.payload
