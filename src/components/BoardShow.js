@@ -15,7 +15,6 @@ class BoardShow extends Component {
       if (board.id === parseInt(match.params.boardId)) {
         return board
        }
-       return ("This board does not exist")
      })
 
     const renderImages = () => board.images.map(image =>
