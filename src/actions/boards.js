@@ -6,6 +6,7 @@ export const setBoards = boards => {
 };
 
 // a, b, h, c, i, d, g, e
+// asynchronous action creator returns a function that takes in an arguement using THUNK aka an action
 export const fetchBoards = () => {
   console.log('a')
   return dispatch => {
@@ -47,3 +48,5 @@ export const saveBoard = (board) => {
     })
   }
 }
+
+// delete
