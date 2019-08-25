@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Input, Col, Label} from 'reactstrap';
+import { Button, Form, Input, Col, Label } from 'reactstrap';
 import SearchResults from '../components/SearchResults'
 import CreateBoard from '../containers/CreateBoard'
 
@@ -30,7 +30,7 @@ class SearchContainer extends Component {
     const KEY = 'd5c39b1d4142cbfb56008c655ecd3b9bbb420cf12e53130dc9cbdf1ef67f746b'
     const URL = `https://api.unsplash.com/search/photos?page=1&query=${query}`
 
-    const images = fetch(URL, {
+    fetch(URL, {
       headers: {
         Authorization: `Client-ID ${KEY}`
       }
@@ -52,30 +52,27 @@ class SearchContainer extends Component {
     this.setState(previousState => ({
       boardImages: [...previousState.boardImages, image]
     }))
+    this.state.searchResults.splice(image, 1);
   }
 
-    render () {
-      console.log(this.state)
-      return (
-        <div>
-          <div className="grid-item">
-            <Form onSubmit={this.handleSubmit}>
-              <Label for="searchForm">Search Unsplash to find your inspiration.</Label>
-                <Col>
-                  <Input type="text" name="query" onChange={this.handleChange} value={this.state.query} />
-                  <Button type="submit">Search</Button>
-                </Col>
-            </Form>
+
+  render () {
+    return (
+      <div className="grid-container">
+        <div className="grid-item">
+          <Form onSubmit={this.handleSubmit}>
+            <Label for="searchForm">Search Unsplash to find your inspiration.</Label>
+              <Col>
+                <Input type="text" name="query" onChange={this.handleChange} value={this.state.query} />
+                <Button type="submit">Search</Button>
+              </Col>
+          </Form>
             <SearchResults searchResults={this.state.searchResults} chooseImage={this.chooseImage}/>
-          </div>
-
-
-            <CreateBoard boardImages={this.state.boardImages}/>
-        
+        </div>
+          <CreateBoard boardImages={this.state.boardImages}/>
       </div>
-
-      )
-    }
+    )
+  }
 }
 
 export default SearchContainer;
