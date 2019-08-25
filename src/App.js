@@ -10,13 +10,13 @@ import BoardShow from './components/BoardShow';
 import { fetchBoards } from './actions/boards';
 
 class App extends React.Component {
-// lifecycle method + fetch method to get boards from rails api
   componentDidMount() {
     this.props.fetchBoards()
   }
 
   render () {
     return (
+
       <Router>
         <div className="App">
 
@@ -37,13 +37,9 @@ class App extends React.Component {
             />
           </Switch>
 
-          <div className="grid-container">
-
-            <div>
-              <SearchContainer />
-            </div>
-
-        </div>
+          <div>
+            <SearchContainer />
+          </div>
 
         </div>
       </Router>
@@ -52,7 +48,6 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     boards: state.manageBoards.boards
   }
