@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const BoardsList = ({boards}) => {
   const renderBoards = Object.values(boards).map((board, index) => {
+    
     return (
       <li key={index}>
         <Link to={`/boards/${board.id}`}>{board.title}</Link>

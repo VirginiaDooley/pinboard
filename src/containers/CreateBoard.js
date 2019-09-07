@@ -36,16 +36,10 @@ class CreateBoard extends Component {
           return {url: image.src}
         })
       }
+
     this.props.saveBoard(board);
-    
+
     this.props.history.push('/boards')
-
-    // set searchResults to empty array
-    // this.setState({
-    //   searchResults: [],
-    //   boardImages: []
-    // })
-
   }
 
   render() {
@@ -68,17 +62,4 @@ class CreateBoard extends Component {
     }
 }
 
-const mapStateToProps = state => {
-  return {
-    boards: state.manageBoards.boards,
-    newBoard: state.manageBoards.newlyCreatedBoard
-  }
-}
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     delete: todoText => dispatch({type: 'DELETE_TODO', payload: todoText })
-//   }
-// }
-
-export default connect(mapStateToProps, {saveBoard}) (withRouter(CreateBoard));
+export default connect(null, {saveBoard}) (withRouter(CreateBoard));

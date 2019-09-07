@@ -10,7 +10,7 @@ class SearchContainer extends Component {
     searchResults: [],
     boardImages: []
   }
-
+  
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -25,7 +25,6 @@ class SearchContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
     const query = this.state.query
     const KEY = 'd5c39b1d4142cbfb56008c655ecd3b9bbb420cf12e53130dc9cbdf1ef67f746b'
     const URL = `https://api.unsplash.com/search/photos?page=1&query=${query}`
@@ -47,7 +46,6 @@ class SearchContainer extends Component {
   }
 
   chooseImage = event => {
-    console.log(this)
     let image = event.target;
     this.setState(previousState => ({
       boardImages: [...previousState.boardImages, image]

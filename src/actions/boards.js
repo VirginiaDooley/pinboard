@@ -1,28 +1,21 @@
-// actions
 const API_URL = 'http://localhost:3000/api/v1/boards'
 
-export const setBoards = boards => {
-  return { type: 'SET_BOARDS', boards };
+export const setBoards = (boards) => {
+  return dispatch => dispatch({ type: 'SET_BOARDS', payload: boards });
 };
 
-// a, b, h, c, i, d, g, e
-// asynchronous action creator returns a function that takes in an arguement using THUNK aka an action
 export const fetchBoards = () => {
-  console.log('a')
-  return dispatch => {
-    console.log('b')
-    dispatch({ type: 'LOADING_BOARDS' });
 
+  return dispatch => {
+    dispatch({ type: 'LOADING_BOARDS' });
   return fetch(API_URL)
-  .then(response => {
-    console.log('c')
-    return response.json()
-  })
-  .then(boards => {
-    console.log('d')
-    dispatch({type: 'SET_BOARDS', payload: boards})
-  })
-  .catch(err => console.log(err));
+    .then(response => {
+      return response.json()
+    })
+    .then(boards => {
+      dispatch({type: 'SET_BOARDS', payload: boards})
+    })
+    .catch(err => console.log(err));
   }
 }
 
@@ -48,5 +41,3 @@ export const saveBoard = (board) => {
     })
   }
 }
-
-// delete
