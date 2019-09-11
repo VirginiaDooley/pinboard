@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 
 class BoardsList extends Component {
 
-  constructor(props){
-   super(props);
-   // initial state
-       this.state = {
-         likes : 0
-       }
-    }
+  constructor(props) {
+    super(props)
+
+    this.state = {boards: this.props.boards}
+    console.log(this.props.boards)
+  }
 
   increaseLikes = (board_id) => {
 
@@ -19,6 +18,14 @@ class BoardsList extends Component {
       board.id === board_id
     )
     let board = newBoards[index];
+
+    debugger
+// if board does not have likes key, then assign it one and set it equal to 0
+    if (!board.likes) {
+      board =
+        Object.assign({}, board, { likes: 0 })
+        console.log(board)
+    }
 
     this.setState({
       boards:
@@ -31,10 +38,10 @@ class BoardsList extends Component {
   }
 
    render() {
-      console.log(this.props)
-       const {boards} = this.props;
+      console.log(this.state)
+       const {boards} = this.state
 
-       const renderBoards = Object.values(boards).map((board) =>
+       const renderBoards = boards.map((board) =>
          <li key={board.id}>
            <Link to={`/boards/${board.id}`}>{board.title}</Link>
              <button onClick={() => this.increaseLikes(board.id)}> + {board.likes}</button>
