@@ -29,7 +29,7 @@ class App extends React.Component {
             <Route exact path='/boards'
               render={routerProps =>
                 <BoardsList
-                  boards={this.props.boards} {...routerProps} />}
+                  boards={this.props.boards} {...routerProps}/>}
             />
             <Route exact path='/boards/:boardId'
               render={routerProps =>

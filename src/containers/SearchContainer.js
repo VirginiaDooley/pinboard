@@ -10,7 +10,7 @@ class SearchContainer extends Component {
     searchResults: [],
     boardImages: []
   }
-  
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -52,7 +52,6 @@ class SearchContainer extends Component {
     }))
     this.state.searchResults.splice(image, 1);
   }
-
 
   render () {
     return (

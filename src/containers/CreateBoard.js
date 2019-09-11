@@ -14,7 +14,7 @@ class CreateBoard extends Component {
     const boardImages = this.props.boardImages;
     if (boardImages.length > 0) {
       return boardImages.map((image, index) => {
-        return <img key={index} src={image.src} alt={image.alt} />
+        return <img key={index} src={image.src} alt={image.alt}/>
       })
     }
     return <p>Click images to add them here and save a new board.</p>;
@@ -40,7 +40,12 @@ class CreateBoard extends Component {
     this.props.saveBoard(board);
 
     this.props.history.push('/boards')
+
+    this.setState({
+      title: ''
+    })
   }
+
 
   render() {
     return (
