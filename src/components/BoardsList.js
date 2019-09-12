@@ -18,9 +18,7 @@ class BoardsList extends Component {
     })
   }
 
-
   increaseLikes = (board_id) => {
-    debugger
     const boards = this.state.boards
 
     let index = boards.findIndex((board) =>

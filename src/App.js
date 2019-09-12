@@ -12,7 +12,6 @@ import { fetchBoards } from './actions/boards';
 class App extends React.Component {
   componentWillMount() {
     this.props.fetchBoards()
-    console.log(this.props.boards)
   }
 
   render() {
