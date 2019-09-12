@@ -43,7 +43,7 @@ class BoardsList extends Component {
        const renderBoards = boards.map((board) =>
          <li key={board.id}>
            <Link to={`/boards/${board.id}`}>{board.title}</Link>
-             <button onClick={() => this.increaseLikes(board.id)}> + {board.likes}</button>
+             <div><button onClick={() => this.increaseLikes(board.id)}> + {board.likes}</button></div>
          </li>
        )
 
