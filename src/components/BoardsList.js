@@ -5,34 +5,35 @@ class BoardsList extends Component {
 
   constructor(props) {
     super(props)
-
-    this.state = {boards: this.props.boards}
-    console.log(this.props.boards)
+      this.state = {
+        boards: this.props.boards
+      }
   }
 
+  componentDidMount() {
+    let boards = this.props.boards;
+    boards = boards.map(board => Object.assign({}, board, { likes: 0 }))
+    this.setState({
+      boards: boards
+    })
+  }
+
+
   increaseLikes = (board_id) => {
+    debugger
+    const boards = this.state.boards
 
-    const newBoards = this.props.boards
-
-    let index = newBoards.findIndex((board) =>
+    let index = boards.findIndex((board) =>
       board.id === board_id
     )
-    let board = newBoards[index];
-
-    debugger
-// if board does not have likes key, then assign it one and set it equal to 0
-    if (!board.likes) {
-      board =
-        Object.assign({}, board, { likes: 0 })
-        console.log(board)
-    }
+    let board = boards[index];
 
     this.setState({
       boards:
         [
-        ...newBoards.slice(0, index),
-        Object.assign({}, board, { likes: board.likes =+ 1 }),
-        ...newBoards.slice(index + 1)
+        ...boards.slice(0, index),
+        Object.assign({}, board, { likes: board.likes + 1 }),
+        ...boards.slice(index + 1)
         ]
       });
   }
