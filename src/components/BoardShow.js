@@ -5,13 +5,14 @@ import {fetchBoards} from '../actions/boards'
 class BoardShow extends Component {
 
   render () {
+    debugger
     const {match, boards} = this.props;
 
     if (boards.length === 0) {
       this.props.fetchBoards()
     }
 
-    const board = boards.find(board => {
+    let board = boards.find(board => {
       if (board.id === parseInt(match.params.boardId)) {
         return board
       }
@@ -19,11 +20,13 @@ class BoardShow extends Component {
      })
 
     const renderImages = () => board.images.map(image =>
-        <img
-         key={image.id}
-         src={image.url}
-         alt={image.description}
-       />
+          <div>
+            <img
+             key={image.id}
+             src={image.url}
+             alt={image.description}
+           />
+        </div>
    )
 
     return (
