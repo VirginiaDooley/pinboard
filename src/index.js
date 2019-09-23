@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import rootReducer from './reducers';
 import './index.css';
-import * as serviceWorker from './serviceWorker';
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -21,5 +21,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-
-serviceWorker.unregister();
