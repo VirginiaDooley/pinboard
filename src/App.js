@@ -10,7 +10,7 @@ import BoardShow from './components/BoardShow';
 import { fetchBoards } from './actions/boards';
 
 class App extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchBoards()
   }
 
