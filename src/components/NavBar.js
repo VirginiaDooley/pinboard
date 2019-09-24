@@ -29,7 +29,7 @@ const NavBar = () => {
       <NavLink style={link}
         to="/boards"
       >
-        Board List
+        All Boards
       </NavLink>
 
     </div>
