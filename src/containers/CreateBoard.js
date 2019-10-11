@@ -36,16 +36,14 @@ class CreateBoard extends Component {
           return {url: image.src}
         })
       }
-
     this.props.saveBoard(board);
-
-    this.props.history.push('/boards')
 
     this.setState({
       title: ''
     })
-  }
 
+    this.props.history.push('/boards');
+  }
 
   render() {
     return (
@@ -57,7 +55,7 @@ class CreateBoard extends Component {
             value={this.state.title}
             placeholder="Add your board title here."
             onChange={this.handleTitleChange}/>
-          <Button onClick={this.handleSave}>Save Board</Button>
+          <Button onClick={this.handleSave} >Save Board</Button>
         </Form>
           <div className="grid-item">
             {this.renderBoardImages()}

@@ -46,11 +46,21 @@ class SearchContainer extends Component {
   }
 
   chooseImage = event => {
+    let searchResults = this.state.searchResults
     let image = event.target;
+
     this.setState(previousState => ({
       boardImages: [...previousState.boardImages, image]
-    }))
-    this.state.searchResults.splice(image, 1);
+    }));
+
+    searchResults.splice(image, 1);
+  }
+
+  clearImages = () => {
+    this.setState({
+      searchResults: [],
+      boardImages: []
+    })
   }
 
   render () {
