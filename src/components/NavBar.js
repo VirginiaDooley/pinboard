@@ -4,15 +4,15 @@ import { NavLink } from 'react-router-dom';
 const link = {
   width: '100px',
   padding: '10px',
-  margin: '10px 10px 10px 10px',
+  margin: '10px',
   textDecoration: 'none',
   color: 'white',
 }
 
 const nav = {
   padding: '10px',
-  margin: '10px 10px 10px 10px',
-  background: 'pink',
+  margin: '10px',
+  background: '#ff6f61',
 }
 
 const NavBar = () => {
@@ -20,6 +20,7 @@ const NavBar = () => {
     <div style={nav} className="navbar">
 
       <NavLink
+        exact
         style={link}
         to="/"
       >
