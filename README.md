@@ -2,9 +2,7 @@
 
 Visualise your goals with an inspiration board. Search and choose images to "pin" and save them to a board with a title.
 
-*LIVE SITE -> (coming soon)
-
-*VIDEO DEMO -> https://youtu.be/57UStbX85V8
+[LIVE SITE](https://pinboard-git-master-virginiadooleys-projects.vercel.app/)
 
 To get start and/or collaborate:
 
